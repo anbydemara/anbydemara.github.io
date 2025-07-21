@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Anby Demara&#39;s Homepage</title>
-    <link>http://localhost:1313/</link>
+    <link>https://example.org/</link>
     <description>Recent content from Anby Demara&#39;s Homepage</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Mon, 21 Jul 2025 20:57:57 +0800</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>My First Post</title>
-      <link>http://localhost:1313/post/my-first-post/</link>
+      <link>https://example.org/post/my-first-post/</link>
       <pubDate>Mon, 21 Jul 2025 20:57:57 &#43;0800</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>http://localhost:1313/post/my-first-post/</guid>
+      <guid>https://example.org/post/my-first-post/</guid>
       <description>
         <![CDATA[<h1>My First Post</h1><p>Author: D-Sketon(xxx@example.com)</p>
         
@@ -45,7 +45,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
         
-        <hr><p>Published on 2025-07-21 at <a href='http://localhost:1313/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
+        <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
       </description>
       
     </item>
@@ -54,16 +54,16 @@
 
     <item>
       <title>Hello World</title>
-      <link>http://localhost:1313/post/hello/</link>
+      <link>https://example.org/post/hello/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>http://localhost:1313/post/hello/</guid>
+      <guid>https://example.org/post/hello/</guid>
       <description>
         <![CDATA[<h1>Hello World</h1><p>Author: D-Sketon(xxx@example.com)</p>
         
           <p>💘 博麗 霊夢 💘</p>
         
-        <hr><p>Published on 2023-03-15 at <a href='http://localhost:1313/'>Anby Demara's Homepage</a>, last modified on 2023-03-15</p>]]>
+        <hr><p>Published on 2023-03-15 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2023-03-15</p>]]>
       </description>
       
     </item>
