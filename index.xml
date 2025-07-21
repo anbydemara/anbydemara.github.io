@@ -12,7 +12,7 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Mon, 21 Jul 2025 20:57:57 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jul 2025 21:57:57 +0800</lastBuildDate>
     
     
     <atom:link href="https://example.org/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,28 +22,53 @@
     
 
     <item>
-      <title>My First Post</title>
-      <link>https://example.org/post/springboot-error/</link>
-      <pubDate>Mon, 21 Jul 2025 20:57:57 &#43;0800</pubDate>
+      <title>技术教程</title>
+      <link>https://example.org/post/tech-share/</link>
+      <pubDate>Mon, 21 Jul 2025 21:57:57 &#43;0800</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>https://example.org/post/springboot-error/</guid>
+      <guid>https://example.org/post/tech-share/</guid>
       <description>
-        <![CDATA[<h1>My First Post</h1><p>Author: D-Sketon(xxx@example.com)</p>
+        <![CDATA[<h1>技术教程</h1><p>Author: D-Sketon(xxx@example.com)</p>
         
-          <h1 id="1">
-<a class="header-anchor" href="#1"></a>
-1
-</h1><p>This is my first post!</p>
+          <h1 id="1-简介">
+<a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
+1 简介
+</h1><p>Cloudflare + Hugo</p>
 <h1 id="2">
 <a class="header-anchor" href="#2"></a>
 2
 </h1><h2 id="21">
 <a class="header-anchor" href="#21"></a>
 2.1
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div>
+</h2>
+        
+        <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>报错处理</title>
+      <link>https://example.org/post/error-process/</link>
+      <pubDate>Mon, 21 Jul 2025 20:57:57 &#43;0800</pubDate>
+      <author>xxx@example.com (D-Sketon)</author>
+      <guid>https://example.org/post/error-process/</guid>
+      <description>
+        <![CDATA[<h1>报错处理</h1><p>Author: D-Sketon(xxx@example.com)</p>
+        
+          <h1 id="1-简介">
+<a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
+1 简介
+</h1><p>NullPointerException异常处理</p>
+<h1 id="2">
+<a class="header-anchor" href="#2"></a>
+2
+</h1><h2 id="21">
+<a class="header-anchor" href="#21"></a>
+2.1
+</h2>
         
         <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
       </description>
