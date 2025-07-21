@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anby Demara&#39;s Homepage</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content from Anby Demara&#39;s Homepage</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <managingEditor>xxx@example.com (D-Sketon)</managingEditor>
+    <webMaster>xxx@example.com (D-Sketon)</webMaster>
+    
+    <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
+    
+    <lastBuildDate>Mon, 21 Jul 2025 20:57:57 +0800</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>My First Post</title>
+      <link>http://localhost:1313/post/my-first-post/</link>
+      <pubDate>Mon, 21 Jul 2025 20:57:57 &#43;0800</pubDate>
+      <author>xxx@example.com (D-Sketon)</author>
+      <guid>http://localhost:1313/post/my-first-post/</guid>
+      <description>
+        <![CDATA[<h1>My First Post</h1><p>Author: D-Sketon(xxx@example.com)</p>
+        
+          <h1 id="1">
+<a class="header-anchor" href="#1"></a>
+1
+</h1><p>This is my first post!</p>
+<h1 id="2">
+<a class="header-anchor" href="#2"></a>
+2
+</h1><h2 id="21">
+<a class="header-anchor" href="#21"></a>
+2.1
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+        
+        <hr><p>Published on 2025-07-21 at <a href='http://localhost:1313/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/post/hello/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <author>xxx@example.com (D-Sketon)</author>
+      <guid>http://localhost:1313/post/hello/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>Author: D-Sketon(xxx@example.com)</p>
+        
+          <p>💘 博麗 霊夢 💘</p>
+        
+        <hr><p>Published on 2023-03-15 at <a href='http://localhost:1313/'>Anby Demara's Homepage</a>, last modified on 2023-03-15</p>]]>
+      </description>
+      
+    </item>
+    
+  </channel>
+</rss>
