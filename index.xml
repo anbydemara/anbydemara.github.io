@@ -7,12 +7,12 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     
-    <managingEditor>xxx@example.com (D-Sketon)</managingEditor>
-    <webMaster>xxx@example.com (D-Sketon)</webMaster>
+    <managingEditor>yang_zc@aliyun.com (Anburger)</managingEditor>
+    <webMaster>yang_zc@aliyun.com (Anburger)</webMaster>
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Mon, 21 Jul 2025 21:57:57 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jul 2025 22:57:57 +0800</lastBuildDate>
     
     
     <atom:link href="https://example.org/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,13 +22,41 @@
     
 
     <item>
+      <title>项目说明</title>
+      <link>https://example.org/post/project-readme/</link>
+      <pubDate>Mon, 21 Jul 2025 22:57:57 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://example.org/post/project-readme/</guid>
+      <description>
+        <![CDATA[<h1>项目说明</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
+        
+          <h1 id="1-简介">
+<a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
+1 简介
+</h1><p>CauseHSI项目说明</p>
+<h1 id="2">
+<a class="header-anchor" href="#2"></a>
+2
+</h1><h2 id="21">
+<a class="header-anchor" href="#21"></a>
+2.1
+</h2>
+        
+        <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
       <title>技术教程</title>
       <link>https://example.org/post/tech-share/</link>
       <pubDate>Mon, 21 Jul 2025 21:57:57 &#43;0800</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
+      <author>yang_zc@aliyun.com (Anburger)</author>
       <guid>https://example.org/post/tech-share/</guid>
       <description>
-        <![CDATA[<h1>技术教程</h1><p>Author: D-Sketon(xxx@example.com)</p>
+        <![CDATA[<h1>技术教程</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
         
           <h1 id="1-简介">
 <a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
@@ -53,10 +81,10 @@
       <title>报错处理</title>
       <link>https://example.org/post/error-process/</link>
       <pubDate>Mon, 21 Jul 2025 20:57:57 &#43;0800</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
+      <author>yang_zc@aliyun.com (Anburger)</author>
       <guid>https://example.org/post/error-process/</guid>
       <description>
-        <![CDATA[<h1>报错处理</h1><p>Author: D-Sketon(xxx@example.com)</p>
+        <![CDATA[<h1>报错处理</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
         
           <h1 id="1-简介">
 <a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
@@ -71,55 +99,6 @@
 </h2>
         
         <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
-      </description>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>My First Post</title>
-      <link>https://example.org/post/my-first-post/</link>
-      <pubDate>Mon, 21 Jul 2025 20:57:57 &#43;0800</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
-      <guid>https://example.org/post/my-first-post/</guid>
-      <description>
-        <![CDATA[<h1>My First Post</h1><p>Author: D-Sketon(xxx@example.com)</p>
-        
-          <h1 id="1">
-<a class="header-anchor" href="#1"></a>
-1
-</h1><p>This is my first post!</p>
-<h1 id="2">
-<a class="header-anchor" href="#2"></a>
-2
-</h1><h2 id="21">
-<a class="header-anchor" href="#21"></a>
-2.1
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div>
-        
-        <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
-      </description>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>Hello World</title>
-      <link>https://example.org/post/hello/</link>
-      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
-      <guid>https://example.org/post/hello/</guid>
-      <description>
-        <![CDATA[<h1>Hello World</h1><p>Author: D-Sketon(xxx@example.com)</p>
-        
-          <p>💘 博麗 霊夢 💘</p>
-        
-        <hr><p>Published on 2023-03-15 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2023-03-15</p>]]>
       </description>
       
     </item>
