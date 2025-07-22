@@ -12,12 +12,87 @@
     
     <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
     
-    <lastBuildDate>Mon, 21 Jul 2025 22:57:57 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Jul 2025 13:30:57 +0800</lastBuildDate>
     
     
     <atom:link href="https://example.org/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>CauseHSI项目说明</title>
+      <link>https://example.org/post/causehsi-readme/</link>
+      <pubDate>Mon, 21 Jul 2025 22:57:57 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://example.org/post/causehsi-readme/</guid>
+      <description>
+        <![CDATA[<h1>CauseHSI项目说明</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
+        
+          <h1 id="1-简介">
+<a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
+1 简介
+</h1><p>CauseHSI项目为论文xxx提供代码实现。CauseHSI用于高光谱图像跨场景分类任务，其架构图如下：</p>
+<p><img src="https://qiniu.anbydemara.dpdns.org/post/Pipeline.png" alt="Pipeline"></p>
+<h1 id="2-使用">
+<a class="header-anchor" href="#2-%e4%bd%bf%e7%94%a8"></a>
+2. 使用
+</h1><h2 id="21-准备">
+<a class="header-anchor" href="#21-%e5%87%86%e5%a4%87"></a>
+2.1 准备
+</h2><h3 id="211-requirements">
+<a class="header-anchor" href="#211-requirements"></a>
+2.1.1 Requirements
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pip intsall -r requirements.txt
+</span></span></code></pre></div><h3 id="212-数据集存储结构">
+<a class="header-anchor" href="#212-%e6%95%b0%e6%8d%ae%e9%9b%86%e5%ad%98%e5%82%a8%e7%bb%93%e6%9e%84"></a>
+2.1.2 数据集存储结构
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#### 数据集目录结构
+</span></span><span class="line"><span class="cl">├── data
+</span></span><span class="line"><span class="cl">│   └── datasets
+</span></span><span class="line"><span class="cl">│       ├── Houston
+</span></span><span class="line"><span class="cl">│       ├── Pavia
+</span></span><span class="line"><span class="cl">│       └── HyRANK
+</span></span><span class="line"><span class="cl">└── ...
+</span></span></code></pre></div><h3 id="213-pre-augmented">
+<a class="header-anchor" href="#213-pre-augmented"></a>
+2.1.3 Pre-Augmented
+</h3><p>在我们的方法中，需要对源域数据进行一次DCT变换和IDCT变换，我们的方法是基于Patch的高光谱图像分类任务，如果对每一个Patch进行变换降低了模型计算速度。因此，我们推荐您直接对原始数据（一张完整的高光谱图像）进行变换</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python scg_aug.py
+</span></span></code></pre></div><h2 id="22-train">
+<a class="header-anchor" href="#22-train"></a>
+2.2 Train
+</h2><ul>
+<li>Houston:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python train-gan.py --data_path Houston/ --source_domain Houston13 --target_domain Houston18 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --training_sample_ratio 0.8 --flip_augmentation --radiation_augmentation
+</span></span></code></pre></div><ul>
+<li>Pavia:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python train-gan.py --data_path Pavia/ --source_domain PaviaU --target_domain PaviaC <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --training_sample_ratio 0.5
+</span></span></code></pre></div><ul>
+<li>HyRANK:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python train-gan.py --data_path HyRANK/ --source_domain Dioni --target_domain Loukia <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --training_sample_ratio 0.8
+</span></span></code></pre></div><h2 id="23-visualization">
+<a class="header-anchor" href="#23-visualization"></a>
+2.3 Visualization
+</h2><h2 id="24-loss">
+<a class="header-anchor" href="#24-loss"></a>
+2.4 Loss
+</h2><h3 id="241-causal-inspired-disentanglement-loss">
+<a class="header-anchor" href="#241-causal-inspired-disentanglement-loss"></a>
+2.4.1 Causal-inspired Disentanglement Loss
+</h3><p>2.1. independence loss</p>
+        
+        <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-22</p>]]>
+      </description>
+      
+    </item>
     
     
 
@@ -62,6 +137,8 @@
 <a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
 1 简介
 </h1><p>Cloudflare + Hugo</p>
+<p><img src="https://qiniu.anbydemara.dpdns.org/image-20250722102505688.png" alt="image-20250722102505688"></p>
+<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722102855749.png" alt="image-20250722102855749"></p>
 <h1 id="2">
 <a class="header-anchor" href="#2"></a>
 2
