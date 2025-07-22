@@ -116,9 +116,13 @@
 <a class="header-anchor" href="#1-%e5%ae%89%e8%a3%85"></a>
 1. 安装
 </h2><p><strong>PicGo: 一个用于快速上传图片并获取图片 URL 链接的工具</strong>，官方文档：<a href="https://picgo.github.io/PicGo-Doc/">PicGo</a>有详细的使用教程。</p>
-<p>下载：https://github.com/Molunerfinn/PicGo/releases，<code>PicGo</code>提供众多<code>beta</code>版本，若希望体验新功能可安装最新<code>beta</code>版本。推荐安装正式版本。下载对应系统安装包进行安装，这里以<code>windows</code>系统为例，下载<code>2.3.1</code>版本：</p>
+<ol>
+<li>下载：<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo-release</a>，<code>PicGo</code>提供众多<code>beta</code>版本，若希望体验新功能可安装最新<code>beta</code>版本。推荐安装正式版本。下载对应系统安装包进行安装，这里以<code>windows</code>系统为例，下载<code>2.3.1</code>版本安装程序：</li>
+</ol>
 <p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722151412072.png" alt="image-20250722151412072"></p>
-<p>下载成功后运行安装程序进行安装，安装成功后开始使用<code>PicGo</code>：</p>
+<ol start="2">
+<li>运行安装程序进行安装，安装成功后开始使用<code>PicGo</code>：</li>
+</ol>
 <p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722151741990.png" alt="image-20250722151741990"></p>
 <h2 id="2-配置图床">
 <a class="header-anchor" href="#2-%e9%85%8d%e7%bd%ae%e5%9b%be%e5%ba%8a"></a>
@@ -133,121 +137,39 @@
 <li><code>阿里云 OSS</code> v1.6.0</li>
 <li><code>Imgur</code> v1.6.0</li>
 </ul>
-<p>免费图床推荐使用<strong>七牛云</strong>、<strong>GitHub</strong></p>
+<p>本文使用<strong>七牛云</strong>对象存储。</p>
 <h3 id="21-七牛云对象存储申请">
 <a class="header-anchor" href="#21-%e4%b8%83%e7%89%9b%e4%ba%91%e5%af%b9%e8%b1%a1%e5%ad%98%e5%82%a8%e7%94%b3%e8%af%b7"></a>
 2.1 七牛云对象存储申请
-</h3><p>进入<a href="https://www.qiniu.com/">七牛云 | 一站式中立音视频云 + AI</a>，完成账号设置（注册、登录、认证等）。完成后进入控制台（入口在网页右上角），选择新建存储空间：</p>
+</h3><ol>
+<li>进入<a href="https://www.qiniu.com/">七牛云 | 一站式中立音视频云 + AI</a>，完成账号设置（注册、登录、认证等）。</li>
+<li>完成后进入控制台（入口在网页右上角），选择新建存储空间：</li>
+</ol>
 <p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722152658046.png" alt="image-20250722152658046"></p>
-<p>在新建存储空间面板中填写信息：</p>
+<ol start="3">
+<li>在新建存储空间面板中填写信息：
 <ul>
 <li>存储空间名称：自定义</li>
-<li>存储区域：如果你拥有已备案的域名或者仅做测试使用，选择国内区域。如果你的域名无法备案，可选择海外区域（不需要备案）。</li>
+<li>存储区域：如果你拥有已备案的域名或者仅做测试使用，选择国内区域。如果你的域名无法备案，可选择海外区域（不需要备案，但访问可能需要梯子）</li>
 <li>访问控制：公开（更方便）</li>
 </ul>
+</li>
+</ol>
 <p>​    填写完成后点击确认。</p>
 <p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722153029092.png" alt="image-20250722153029092"></p>
-<h3 id="22-配置picgo图床">
-<a class="header-anchor" href="#22-%e9%85%8d%e7%bd%aepicgo%e5%9b%be%e5%ba%8a"></a>
-2.2 配置PicGo图床
-</h3><p>进入<code>PicGo-&gt;图床设置-&gt;七牛云</code>，填写配置信息：</p>
-<ul>
-<li><code>AccessKey</code>和<code>SecretKey</code>：</li>
-<li><code>Bucket</code>：存储空间名称（如2.1中创建的<code>anburgerblog</code>）</li>
-<li>访问网址</li>
-<li>存储区域</li>
-<li>存储路径</li>
-</ul>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722153925421.png" alt="image-20250722153925421"></p>
-<p>设置完成后点击<strong>确定</strong>进行保存，同时可以点击<strong>设为默认图床</strong>将七牛云作为默认图床。</p>
+<ol start="4">
+<li>
+<p>绑定域名</p>
+<p>存储空间创建后，会分配一个测试域名，可以直接使用，但是会被回收，因此不推荐实际使用。</p>
+<p>如果没有域名，可以注册免费域名，详见：。</p>
+<p>拥有一个域名后，进入新建的存储空间进行域名管理：</p>
+<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722170800583.png" alt="image-20250722170800583"></p>
+<p>因为CDN加速域名需要进行域名所有权认证，所以我这里选择<code>自定义源站域名</code>，点击绑定域名后，填写：</p>
+<p>从绑定的域名列表中，复制<code>CNAME</code></p>
+<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722171225178.png" alt="image-20250722171225178"></p>
+<p>然后使用<code>CloudFlare</code>配置CNAME并开启DNS减速服务(:rage:)，</p>
         
         <hr><p>Published on 2025-07-22 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-22</p>]]>
-      </description>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>项目说明</title>
-      <link>https://example.org/post/project-readme/</link>
-      <pubDate>Mon, 21 Jul 2025 22:57:57 &#43;0800</pubDate>
-      <author>yang_zc@aliyun.com (Anburger)</author>
-      <guid>https://example.org/post/project-readme/</guid>
-      <description>
-        <![CDATA[<h1>项目说明</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
-        
-          <h1 id="1-简介">
-<a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
-1 简介
-</h1><p>CauseHSI项目说明</p>
-<h1 id="2">
-<a class="header-anchor" href="#2"></a>
-2
-</h1><h2 id="21">
-<a class="header-anchor" href="#21"></a>
-2.1
-</h2>
-        
-        <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
-      </description>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>技术教程</title>
-      <link>https://example.org/post/tech-share/</link>
-      <pubDate>Mon, 21 Jul 2025 21:57:57 &#43;0800</pubDate>
-      <author>yang_zc@aliyun.com (Anburger)</author>
-      <guid>https://example.org/post/tech-share/</guid>
-      <description>
-        <![CDATA[<h1>技术教程</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
-        
-          <h1 id="1-简介">
-<a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
-1 简介
-</h1><p>Cloudflare + Hugo</p>
-<p><img src="https://qiniu.anbydemara.dpdns.org/image-20250722102505688.png" alt="image-20250722102505688"></p>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722102855749.png" alt="image-20250722102855749"></p>
-<h1 id="2">
-<a class="header-anchor" href="#2"></a>
-2
-</h1><h2 id="21">
-<a class="header-anchor" href="#21"></a>
-2.1
-</h2>
-        
-        <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
-      </description>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>报错处理</title>
-      <link>https://example.org/post/error-process/</link>
-      <pubDate>Mon, 21 Jul 2025 20:57:57 &#43;0800</pubDate>
-      <author>yang_zc@aliyun.com (Anburger)</author>
-      <guid>https://example.org/post/error-process/</guid>
-      <description>
-        <![CDATA[<h1>报错处理</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
-        
-          <h1 id="1-简介">
-<a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
-1 简介
-</h1><p>NullPointerException异常处理</p>
-<h1 id="2">
-<a class="header-anchor" href="#2"></a>
-2
-</h1><h2 id="21">
-<a class="header-anchor" href="#21"></a>
-2.1
-</h2>
-        
-        <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-21</p>]]>
       </description>
       
     </item>
