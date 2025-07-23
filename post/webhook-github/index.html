@@ -146,7 +146,14 @@ This article does not have a corresponding language version
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-github配置webhook">1 Github配置Webhook</a></li>
+    <li><a href="#1-github配置webhook">1. Github配置Webhook</a></li>
+    <li><a href="#2-服务器创建hook">2. 服务器创建hook</a>
+      <ul>
+        <li><a href="#21-安装">2.1 安装</a></li>
+        <li><a href="#22-配置hook">2.2 配置hook</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-设置开机自启动">3. 设置开机自启动</a></li>
   </ul>
 </nav>
   </div>
@@ -244,8 +251,75 @@ This article does not have a corresponding language version
 </div>
     <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="1-github配置webhook">
 <a class="header-anchor" href="#1-github%e9%85%8d%e7%bd%aewebhook"></a>
-1 Github配置Webhook
-</h2></div>
+1. Github配置Webhook
+</h2><p>:round_pushpin:例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>
+<p>:one: ​进入<code>Github</code>仓库，<code>Settings-&gt;Webhooks-&gt;Add webhook</code></p>
+<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250723111230291.png" alt="image-20250723111230291"></p>
+<p>:two: 填写配置信息</p>
+<ul>
+<li>
+<p><code>PayLoad URL</code>：<code>http://your_servier_ip:port/path/{id}</code>，其中<code>port:9000，path:hooks</code>都是默认值，我们保存不变。修改修改为自己的ip地址，并且为该<code>Payload</code>自定义一个<code>id</code></p>
+</li>
+<li>
+<p><code>Content type</code>：选择<code>application/json</code>格式</p>
+</li>
+<li>
+<p><code>Secret</code>：设置自己的<code>Secret token</code>用于验证，可以使用一个随机字符串</p>
+</li>
+<li>
+<p><code>webhook</code>触发条件：<code>Just push event</code>表示push代码到仓库时触发，可以自定义其他事件</p>
+<p>其他保持默认，最后<code>Update webhook</code>：</p>
+</li>
+</ul>
+<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250723111759923.png" alt="image-20250723111759923"></p>
+<h2 id="2-服务器创建hook">
+<a class="header-anchor" href="#2-%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%88%9b%e5%bb%bahook"></a>
+2. 服务器创建hook
+</h2><p>:round_pushpin:我们使用<a href="https://github.com/adnanh/webhook">webhook</a>工具：</p>
+<blockquote>
+<p><a href="https://github.com/adnanh/webhook">webhook</a> is a lightweight configurable tool written in Go, that allows you to easily create HTTP endpoints (hooks) on your server, which you can use to execute configured commands. You can also pass data from the HTTP request (such as headers, payload or query variables) to your commands. <a href="https://github.com/adnanh/webhook">webhook</a> also allows you to specify rules which have to be satisfied in order for the hook to be triggered.</p></blockquote>
+<h3 id="21-安装">
+<a class="header-anchor" href="#21-%e5%ae%89%e8%a3%85"></a>
+2.1 安装
+</h3><p>该工具使用Go编写，因此我们需要先安装</p>
+<p>:one:</p>
+<h3 id="22-配置hook">
+<a class="header-anchor" href="#22-%e9%85%8d%e7%bd%aehook"></a>
+2.2 配置hook
+</h3><p>:one:</p>
+<h2 id="3-设置开机自启动">
+<a class="header-anchor" href="#3-%e8%ae%be%e7%bd%ae%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af%e5%8a%a8"></a>
+3. 设置开机自启动
+</h2><p>:one: 创建服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vi /etc/systemd/system/webhook.service
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>Webhook Service
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>network.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Type</span><span class="o">=</span>simple
+</span></span><span class="line"><span class="cl"><span class="nv">User</span><span class="o">=</span>root
+</span></span><span class="line"><span class="cl"><span class="nv">WorkingDirectory</span><span class="o">=</span>/usr/local/src/webhook
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/src/webhook/webhook -hooks ./my-script/hooks.json -verbose
+</span></span><span class="line"><span class="cl"><span class="nv">Restart</span><span class="o">=</span>always
+</span></span><span class="line"><span class="cl"><span class="nv">RestartSec</span><span class="o">=</span>5s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</span></span></code></pre></div><p>:two: 启动服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 重新加载systemd</span>
+</span></span><span class="line"><span class="cl">systemctl daemon-reload
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动服务</span>
+</span></span><span class="line"><span class="cl">systemctl start webhook
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置开机自启动</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> webhook
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看服务状态</span>
+</span></span><span class="line"><span class="cl">systemctl status webhook
+</span></span></code></pre></div><p>:tada: Congratulations! 我们已经实现基本的自动化部署了，你可以尽情的在此基础上进行扩展，例如​完善请求校验处理、按需求撰写你的执行脚本等。</p>
+</div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"></ul>
 </footer>
   </div><nav
@@ -279,7 +353,7 @@ This article does not have a corresponding language version
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;221</span
+          >&nbsp;362</span
         >
         &nbsp;|&nbsp;
         <span class="icon-coffee">&nbsp;00:03</span>
@@ -309,7 +383,14 @@ This article does not have a corresponding language version
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-github配置webhook">1 Github配置Webhook</a></li>
+    <li><a href="#1-github配置webhook">1. Github配置Webhook</a></li>
+    <li><a href="#2-服务器创建hook">2. 服务器创建hook</a>
+      <ul>
+        <li><a href="#21-安装">2.1 安装</a></li>
+        <li><a href="#22-配置hook">2.2 配置hook</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-设置开机自启动">3. 设置开机自启动</a></li>
   </ul>
 </nav>
   </div>
@@ -412,7 +493,7 @@ This article does not have a corresponding language version
           author: "Anburger",
           title: "Webhook实现Github自动推送到Linux自动部署",
           url: "https:\/\/example.org\/post\/webhook-github\/",
-          description: "\r1 Github配置Webhook\r",
+          description: "\r1. Github配置Webhook\r:round_pushpin:例如我在anbydemara.github.io该仓库中存储了我的静态博客网站，我希望当我push到该仓库时，Github自动通知我的服务器并执行自定义指令。\n:one: ​进入Github仓库，Settings-\u0026gt;Webhooks-\u0026gt;Add webhook\n:two: 填写配置信息\nPayLoad URL：http:\/\/your_servier_ip:port\/path\/{id}，其中port:9000，path:hooks都是默认值，我们保存不变。修改修改为自己的ip地址，并且为该Payload自定义一个id …",
           cover: "https:\/\/qiniu.anbydemara.dpdns.org\/cover\/Tech.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {

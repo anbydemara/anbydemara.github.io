@@ -32,8 +32,33 @@
         
           <h2 id="1-github配置webhook">
 <a class="header-anchor" href="#1-github%e9%85%8d%e7%bd%aewebhook"></a>
-1 Github配置Webhook
-</h2>
+1. Github配置Webhook
+</h2><p>:round_pushpin:例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>
+<p>:one: ​进入<code>Github</code>仓库，<code>Settings-&gt;Webhooks-&gt;Add webhook</code></p>
+<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250723111230291.png" alt="image-20250723111230291"></p>
+<p>:two: 填写配置信息</p>
+<ul>
+<li>
+<p><code>PayLoad URL</code>：<code>http://your_servier_ip:port/path/{id}</code>，其中<code>port:9000，path:hooks</code>都是默认值，我们保存不变。修改修改为自己的ip地址，并且为该<code>Payload</code>自定义一个<code>id</code></p>
+</li>
+<li>
+<p><code>Content type</code>：选择<code>application/json</code>格式</p>
+</li>
+<li>
+<p><code>Secret</code>：设置自己的<code>Secret token</code>用于验证，可以使用一个随机字符串</p>
+</li>
+<li>
+<p><code>webhook</code>触发条件：<code>Just push event</code>表示push代码到仓库时触发，可以自定义其他事件</p>
+<p>其他保持默认，最后<code>Update webhook</code>：</p>
+</li>
+</ul>
+<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250723111759923.png" alt="image-20250723111759923"></p>
+<h2 id="2-服务器创建hook">
+<a class="header-anchor" href="#2-%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%88%9b%e5%bb%bahook"></a>
+2. 服务器创建hook
+</h2><p>:round_pushpin:我们使用<a href="https://github.com/adnanh/webhook">webhook</a>工具：</p>
+<blockquote>
+<p><a href="https://github.com/adnanh/webhook">webhook</a> is a lightweight configurable tool written in Go, that allows you to easily create HTTP endpoints (hooks) on your server, which you can use to execute configured commands. You can also pass data from the HTTP request (such as headers, payload or query variables) to your commands. <a href="https://github.com/adnanh/webhook">webhook</a> also allows you to specify rules which have to be satisfied in order for the hook to be triggered.</p>
         
         <hr><p>Published on 2025-07-23 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-23</p>]]>
       </description>
