@@ -5,12 +5,12 @@
     <link>https://example.org/</link>
     <description>Recent content from Anby Demara&#39;s Homepage</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     
     <managingEditor>yang_zc@aliyun.com (Anburger)</managingEditor>
     <webMaster>yang_zc@aliyun.com (Anburger)</webMaster>
     
-    <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
     <lastBuildDate>Wed, 23 Jul 2025 10:00:00 +0800</lastBuildDate>
     
@@ -28,40 +28,18 @@
       <author>yang_zc@aliyun.com (Anburger)</author>
       <guid>https://example.org/post/webhook-github/</guid>
       <description>
-        <![CDATA[<h1>Webhook实现Github自动推送到Linux自动部署</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
+        <![CDATA[<h1>Webhook实现Github自动推送到Linux自动部署</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
           <h2 id="1-github配置webhook">
 <a class="header-anchor" href="#1-github%e9%85%8d%e7%bd%aewebhook"></a>
 1. Github配置Webhook
 </h2><p>:round_pushpin:例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>
 <p>:one: ​进入<code>Github</code>仓库，<code>Settings-&gt;Webhooks-&gt;Add webhook</code></p>
-<p><img src="https://qiniu.anburger.site/post/image-20250723111230291.png" alt="image-20250723111230291"></p>
-<p>:two: 填写配置信息</p>
-<ul>
-<li>
-<p><code>PayLoad URL</code>：<code>http://your_servier_ip:port/path/{id}</code>，其中<code>port:9000，path:hooks</code>都是默认值，我们保存不变。修改修改为自己的ip地址，并且为该<code>Payload</code>自定义一个<code>id</code></p>
-</li>
-<li>
-<p><code>Content type</code>：选择<code>application/json</code>格式</p>
-</li>
-<li>
-<p><code>Secret</code>：设置自己的<code>Secret token</code>用于验证，可以使用一个随机字符串</p>
-</li>
-<li>
-<p><code>webhook</code>触发条件：<code>Just push event</code>表示push代码到仓库时触发，可以自定义其他事件</p>
-<p>其他保持默认，最后<code>Update webhook</code>：</p>
-</li>
-</ul>
-<p><img src="https://qiniu.anburger.site/post/image-20250723111759923.png" alt="image-20250723111759923"></p>
-<h2 id="2-服务器创建hook">
-<a class="header-anchor" href="#2-%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%88%9b%e5%bb%bahook"></a>
-2. 服务器创建hook
-</h2><p>:round_pushpin:我们使用<a href="https://github.com/adnanh/webhook">webhook</a>工具：</p>
-<blockquote>
-<p><a href="https://github.com/adnanh/webhook">webhook</a> is a lightweight configurable tool written in Go, that allows you to easily create HTTP endpoints (hooks) on your server, which you can use to execute configured commands. You can also pass data from the HTTP request (such as headers, payload or query variables) to your commands. <a href="https://github.com/adnanh/webhook">webhook</a> also allows you to specify rules which have to be satisfied in order for the hook to be triggered.</p>
         
-        <hr><p>Published on 2025-07-23 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-23</p>]]>
+        <hr><p>本文2025-07-23首发于<a href='https://example.org/'>Anby Demara's Homepage</a>，最后修改于2025-07-23</p>]]>
       </description>
+      
+        <category>自动化工具</category><category>Github</category>
       
     </item>
     
@@ -74,69 +52,14 @@
       <author>yang_zc@aliyun.com (Anburger)</author>
       <guid>https://example.org/post/causehsi-readme/</guid>
       <description>
-        <![CDATA[<h1>CauseHSI项目说明</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
+        <![CDATA[<h1>CauseHSI项目说明</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
           <h1 id="1-简介">
 <a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
 1 简介
 </h1><p>CauseHSI项目为论文CauseHSI: Cross-scene Hyperspectral image classifaction via Causal Disentanglement提供代码实现。CauseHSI用于高光谱图像跨场景分类任务，其架构图如下：</p>
-<p><img src="https://qiniu.anburger.site/post/Pipeline.png" alt="Pipeline"></p>
-<p>CauseHSI主要分为两个部分：生成模块Generation Module(CGM)和解耦模块Causal Disentanglement Module(CDM)</p>
-<h1 id="2-使用">
-<a class="header-anchor" href="#2-%e4%bd%bf%e7%94%a8"></a>
-2. 使用
-</h1><h2 id="21-准备">
-<a class="header-anchor" href="#21-%e5%87%86%e5%a4%87"></a>
-2.1 准备
-</h2><h3 id="211-requirements">
-<a class="header-anchor" href="#211-requirements"></a>
-2.1.1 Requirements
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pip intsall -r requirements.txt
-</span></span></code></pre></div><h3 id="212-数据集存储结构">
-<a class="header-anchor" href="#212-%e6%95%b0%e6%8d%ae%e9%9b%86%e5%ad%98%e5%82%a8%e7%bb%93%e6%9e%84"></a>
-2.1.2 数据集存储结构
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#### 数据集目录结构
-</span></span><span class="line"><span class="cl">├── data
-</span></span><span class="line"><span class="cl">│   └── datasets
-</span></span><span class="line"><span class="cl">│       ├── Houston
-</span></span><span class="line"><span class="cl">│       ├── Pavia
-</span></span><span class="line"><span class="cl">│       └── HyRANK
-</span></span><span class="line"><span class="cl">└── ...
-</span></span></code></pre></div><h3 id="213-pre-augmented">
-<a class="header-anchor" href="#213-pre-augmented"></a>
-2.1.3 Pre-Augmented
-</h3><p>在我们的方法中，需要对源域数据进行一次DCT变换和IDCT变换，我们的方法是基于Patch的高光谱图像分类任务，如果对每一个Patch进行变换降低了模型计算速度。因此，我们推荐您直接对原始数据（一张完整的高光谱图像）进行变换</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python scg_aug.py
-</span></span></code></pre></div><h2 id="22-train">
-<a class="header-anchor" href="#22-train"></a>
-2.2 Train
-</h2><ul>
-<li>Houston:</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python train-gan.py --data_path Houston/ --source_domain Houston13 --target_domain Houston18 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --training_sample_ratio 0.8 --flip_augmentation --radiation_augmentation
-</span></span></code></pre></div><ul>
-<li>Pavia:</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python train-gan.py --data_path Pavia/ --source_domain PaviaU --target_domain PaviaC <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --training_sample_ratio 0.5
-</span></span></code></pre></div><ul>
-<li>HyRANK:</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">python train-gan.py --data_path HyRANK/ --source_domain Dioni --target_domain Loukia <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --training_sample_ratio 0.8
-</span></span></code></pre></div><h2 id="23-visualization">
-<a class="header-anchor" href="#23-visualization"></a>
-2.3 Visualization
-</h2><h2 id="24-loss">
-<a class="header-anchor" href="#24-loss"></a>
-2.4 Loss
-</h2><h3 id="241-causal-inspired-disentanglement-loss">
-<a class="header-anchor" href="#241-causal-inspired-disentanglement-loss"></a>
-2.4.1 Causal-inspired Disentanglement Loss
-</h3><p>2.1. independence loss</p>
         
-        <hr><p>Published on 2025-07-21 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-22</p>]]>
+        <hr><p>本文2025-07-21首发于<a href='https://example.org/'>Anby Demara's Homepage</a>，最后修改于2025-07-22</p>]]>
       </description>
       
     </item>
@@ -150,74 +73,14 @@
       <author>yang_zc@aliyun.com (Anburger)</author>
       <guid>https://example.org/post/picgo-typora/</guid>
       <description>
-        <![CDATA[<h1>PicGo实现Typora插入图片上传服务</h1><p>Author: Anburger(yang_zc@aliyun.com)</p>
+        <![CDATA[<h1>PicGo实现Typora插入图片上传服务</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
           <p>现在已经有非常多的快速搭建<strong>博客站</strong>的工具，例如<code>JeckII、Hexo、Hugo</code>等，它们都具有非常优秀的使用体验，并且可以通过<code>GitHub</code>、<code>CloudFlare</code>等工具进行免费部署。利用它们成功搭建出自己的博客站后，往往使用<code>Markdown</code>进行博客内容撰写。在撰写过程中，我们会发现处理图片时会面临一些窘境：</p>
-<ul>
-<li>需要将图片放到特定资源文件夹（进行上传），操作不方便</li>
-<li>图片过多后占用空间</li>
-<li>图片太大时加载速度慢等</li>
-</ul>
-<p>我们可以采用将图片资源存放到图床的方案解决图片存储、路径问题。此外，在写作过程中通过安装<code>PicGo工具+压缩等插件</code>简化撰写过程，接下来跟我一起让写博客变得更加优雅吧！</p>
-<h2 id="1-安装">
-<a class="header-anchor" href="#1-%e5%ae%89%e8%a3%85"></a>
-1. 安装
-</h2><p><strong>PicGo: 一个用于快速上传图片并获取图片 URL 链接的工具</strong>，官方文档：<a href="https://picgo.github.io/PicGo-Doc/">PicGo</a>有详细的使用教程。</p>
-<ol>
-<li>下载：<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo-release</a>，<code>PicGo</code>提供众多<code>beta</code>版本，若希望体验新功能可安装最新<code>beta</code>版本。推荐安装正式版本。下载对应系统安装包进行安装，这里以<code>windows</code>系统为例，下载<code>2.3.1</code>版本安装程序：</li>
-</ol>
-<p><img src="https://qiniu.anburger.site/post/image-20250722151412072.png" alt="image-20250722151412072"></p>
-<ol start="2">
-<li>运行安装程序进行安装，安装成功后开始使用<code>PicGo</code>：</li>
-</ol>
-<p><img src="https://qiniu.anburger.site/post/image-20250722151741990.png" alt="image-20250722151741990"></p>
-<h2 id="2-配置图床">
-<a class="header-anchor" href="#2-%e9%85%8d%e7%bd%ae%e5%9b%be%e5%ba%8a"></a>
-2. 配置图床
-</h2><p><code>PicGo</code> 本体支持如下图床：</p>
-<ul>
-<li><code>七牛图床</code> v1.0</li>
-<li><code>腾讯云 COS v4\v5 版本</code> v1.1 &amp; v1.5.0</li>
-<li><code>又拍云</code> v1.2.0</li>
-<li><code>GitHub</code> v1.5.0</li>
-<li><code>SM.MS V2</code> v2.3.0-beta.0</li>
-<li><code>阿里云 OSS</code> v1.6.0</li>
-<li><code>Imgur</code> v1.6.0</li>
-</ul>
-<p>本文使用<strong>七牛云</strong>对象存储。</p>
-<h3 id="21-七牛云对象存储申请">
-<a class="header-anchor" href="#21-%e4%b8%83%e7%89%9b%e4%ba%91%e5%af%b9%e8%b1%a1%e5%ad%98%e5%82%a8%e7%94%b3%e8%af%b7"></a>
-2.1 七牛云对象存储申请
-</h3><ol>
-<li>进入<a href="https://www.qiniu.com/">七牛云 | 一站式中立音视频云 + AI</a>，完成账号设置（注册、登录、认证等）。</li>
-<li>完成后进入控制台（入口在网页右上角），选择新建存储空间：</li>
-</ol>
-<p><img src="https://qiniu.anburger.site/post/image-20250722152658046.png" alt="image-20250722152658046"></p>
-<ol start="3">
-<li>在新建存储空间面板中填写信息：
-<ul>
-<li>存储空间名称：自定义</li>
-<li>存储区域：如果你拥有已备案的域名或者仅做测试使用，选择国内区域。如果你的域名无法备案，可选择海外区域（不需要备案，但访问可能需要梯子）</li>
-<li>访问控制：公开（更方便）</li>
-</ul>
-</li>
-</ol>
-<p>​    填写完成后点击确认。</p>
-<p><img src="https://qiniu.anburger.site/post/image-20250722153029092.png" alt="image-20250722153029092"></p>
-<ol start="4">
-<li>
-<p>绑定域名</p>
-<p>存储空间创建后，会分配一个测试域名，可以直接使用，但是会被回收，因此不推荐实际使用。</p>
-<p>如果没有域名，可以注册免费域名，详见：。</p>
-<p>拥有一个域名后，进入新建的存储空间进行域名管理：</p>
-<p><img src="https://qiniu.anburger.site/post/image-20250722170800583.png" alt="image-20250722170800583"></p>
-<p>因为CDN加速域名需要进行域名所有权认证，所以我这里选择<code>自定义源站域名</code>，点击绑定域名后，填写：</p>
-<p>从绑定的域名列表中，复制<code>CNAME</code></p>
-<p><img src="https://qiniu.anburger.site/post/image-20250722171225178.png" alt="image-20250722171225178"></p>
-<p>然后使用<code>CloudFlare</code>配置CNAME并开启DNS减速服务(:rage:)，</p>
         
-        <hr><p>Published on 2025-07-22 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-22</p>]]>
+        <hr><p>本文2025-07-22首发于<a href='https://example.org/'>Anby Demara's Homepage</a>，最后修改于2025-07-22</p>]]>
       </description>
+      
+        <category>自动化工具</category>
       
     </item>
     

@@ -5,7 +5,16 @@
     <loc>https://example.org/</loc>
     <lastmod>2025-07-23T10:00:00+08:00</lastmod>
   </url><url>
+    <loc>https://example.org/categories/</loc>
+    <lastmod>2025-07-23T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://example.org/categories/github/</loc>
+    <lastmod>2025-07-23T10:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://example.org/post/webhook-github/</loc>
+    <lastmod>2025-07-23T10:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://example.org/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-07-23T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://example.org/post/picgo-typora/</loc>
@@ -17,13 +26,14 @@
     <loc>https://example.org/about/</loc>
     <lastmod>2025-07-21T21:12:52+08:00</lastmod>
   </url><url>
+    <loc>https://example.org/wechat/</loc>
+    <lastmod>2025-07-21T21:12:52+08:00</lastmod>
+  </url><url>
     <loc>https://example.org/archives/</loc>
     <lastmod>2022-07-26T21:46:25+08:00</lastmod>
   </url><url>
     <loc>https://example.org/friend/</loc>
     <lastmod>2022-06-09T20:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://example.org/categories/</loc>
   </url><url>
     <loc>https://example.org/tags/</loc>
   </url>

@@ -5,12 +5,12 @@
     <link>https://example.org/tags/</link>
     <description>Recent content from Anby Demara&#39;s Homepage</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>zh-cn</language>
     
     <managingEditor>yang_zc@aliyun.com (Anburger)</managingEditor>
     <webMaster>yang_zc@aliyun.com (Anburger)</webMaster>
     
-    <copyright>All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!</copyright>
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
     
     <atom:link href="https://example.org/tags/index.xml" rel="self" type="application/rss&#43;xml" />
