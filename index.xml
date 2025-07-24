@@ -33,8 +33,8 @@
           <h2 id="1-github配置webhook">
 <a class="header-anchor" href="#1-github%e9%85%8d%e7%bd%aewebhook"></a>
 1. Github配置Webhook
-</h2><p>:round_pushpin:例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>
-<p>:one: ​进入<code>Github</code>仓库，<code>Settings-&gt;Webhooks-&gt;Add webhook</code></p>
+</h2><p>&#x1f4cd;例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>
+<p>&#x31;&#xfe0f;&#x20e3; ​进入<code>Github</code>仓库，<code>Settings-&gt;Webhooks-&gt;Add webhook</code></p>
         
         <hr><p>本文2025-07-23首发于<a href='https://example.org/'>Anby Demara's Homepage</a>，最后修改于2025-07-23</p>]]>
       </description>
