@@ -35,7 +35,7 @@
 1. Github配置Webhook
 </h2><p>:round_pushpin:例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>
 <p>:one: ​进入<code>Github</code>仓库，<code>Settings-&gt;Webhooks-&gt;Add webhook</code></p>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250723111230291.png" alt="image-20250723111230291"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250723111230291.png" alt="image-20250723111230291"></p>
 <p>:two: 填写配置信息</p>
 <ul>
 <li>
@@ -52,7 +52,7 @@
 <p>其他保持默认，最后<code>Update webhook</code>：</p>
 </li>
 </ul>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250723111759923.png" alt="image-20250723111759923"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250723111759923.png" alt="image-20250723111759923"></p>
 <h2 id="2-服务器创建hook">
 <a class="header-anchor" href="#2-%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%88%9b%e5%bb%bahook"></a>
 2. 服务器创建hook
@@ -80,7 +80,7 @@
 <a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
 1 简介
 </h1><p>CauseHSI项目为论文CauseHSI: Cross-scene Hyperspectral image classifaction via Causal Disentanglement提供代码实现。CauseHSI用于高光谱图像跨场景分类任务，其架构图如下：</p>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/Pipeline.png" alt="Pipeline"></p>
+<p><img src="https://qiniu.anburger.site/post/Pipeline.png" alt="Pipeline"></p>
 <p>CauseHSI主要分为两个部分：生成模块Generation Module(CGM)和解耦模块Causal Disentanglement Module(CDM)</p>
 <h1 id="2-使用">
 <a class="header-anchor" href="#2-%e4%bd%bf%e7%94%a8"></a>
@@ -166,11 +166,11 @@
 <ol>
 <li>下载：<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo-release</a>，<code>PicGo</code>提供众多<code>beta</code>版本，若希望体验新功能可安装最新<code>beta</code>版本。推荐安装正式版本。下载对应系统安装包进行安装，这里以<code>windows</code>系统为例，下载<code>2.3.1</code>版本安装程序：</li>
 </ol>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722151412072.png" alt="image-20250722151412072"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722151412072.png" alt="image-20250722151412072"></p>
 <ol start="2">
 <li>运行安装程序进行安装，安装成功后开始使用<code>PicGo</code>：</li>
 </ol>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722151741990.png" alt="image-20250722151741990"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722151741990.png" alt="image-20250722151741990"></p>
 <h2 id="2-配置图床">
 <a class="header-anchor" href="#2-%e9%85%8d%e7%bd%ae%e5%9b%be%e5%ba%8a"></a>
 2. 配置图床
@@ -192,7 +192,7 @@
 <li>进入<a href="https://www.qiniu.com/">七牛云 | 一站式中立音视频云 + AI</a>，完成账号设置（注册、登录、认证等）。</li>
 <li>完成后进入控制台（入口在网页右上角），选择新建存储空间：</li>
 </ol>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722152658046.png" alt="image-20250722152658046"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722152658046.png" alt="image-20250722152658046"></p>
 <ol start="3">
 <li>在新建存储空间面板中填写信息：
 <ul>
@@ -203,17 +203,17 @@
 </li>
 </ol>
 <p>​    填写完成后点击确认。</p>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722153029092.png" alt="image-20250722153029092"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722153029092.png" alt="image-20250722153029092"></p>
 <ol start="4">
 <li>
 <p>绑定域名</p>
 <p>存储空间创建后，会分配一个测试域名，可以直接使用，但是会被回收，因此不推荐实际使用。</p>
 <p>如果没有域名，可以注册免费域名，详见：。</p>
 <p>拥有一个域名后，进入新建的存储空间进行域名管理：</p>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722170800583.png" alt="image-20250722170800583"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722170800583.png" alt="image-20250722170800583"></p>
 <p>因为CDN加速域名需要进行域名所有权认证，所以我这里选择<code>自定义源站域名</code>，点击绑定域名后，填写：</p>
 <p>从绑定的域名列表中，复制<code>CNAME</code></p>
-<p><img src="https://qiniu.anbydemara.dpdns.org/post/image-20250722171225178.png" alt="image-20250722171225178"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722171225178.png" alt="image-20250722171225178"></p>
 <p>然后使用<code>CloudFlare</code>配置CNAME并开启DNS减速服务(:rage:)，</p>
         
         <hr><p>Published on 2025-07-22 at <a href='https://example.org/'>Anby Demara's Homepage</a>, last modified on 2025-07-22</p>]]>
