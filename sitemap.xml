@@ -2,39 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/</loc>
+    <loc>https://anburger.site/</loc>
+    <lastmod>2025-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://anburger.site/tools/</loc>
+    <lastmod>2025-07-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://anburger.site/categories/</loc>
     <lastmod>2025-07-23T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/</loc>
+    <loc>https://anburger.site/categories/github/</loc>
     <lastmod>2025-07-23T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/github/</loc>
+    <loc>https://anburger.site/post/webhook-github/</loc>
     <lastmod>2025-07-23T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/post/webhook-github/</loc>
+    <loc>https://anburger.site/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-07-23T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-07-23T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://example.org/post/picgo-typora/</loc>
+    <loc>https://anburger.site/post/picgo-typora/</loc>
     <lastmod>2025-07-22T12:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/post/causehsi-readme/</loc>
+    <loc>https://anburger.site/post/causehsi-readme/</loc>
     <lastmod>2025-07-22T13:30:57+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/about/</loc>
+    <loc>https://anburger.site/about/</loc>
     <lastmod>2025-07-21T21:12:52+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/wechat/</loc>
+    <loc>https://anburger.site/wechat/</loc>
     <lastmod>2025-07-21T21:12:52+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/archives/</loc>
+    <loc>https://anburger.site/archives/</loc>
     <lastmod>2022-07-26T21:46:25+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/friend/</loc>
+    <loc>https://anburger.site/friend/</loc>
     <lastmod>2022-06-09T20:12:52+08:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/</loc>
+    <loc>https://anburger.site/tags/</loc>
   </url>
 </urlset>

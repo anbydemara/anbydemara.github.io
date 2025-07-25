@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Anby Demara&#39;s Homepage</title>
-    <link>https://example.org/algolia.json</link>
+    <link>https://anburger.site/algolia.json</link>
     <description>Recent content from Anby Demara&#39;s Homepage</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Wed, 23 Jul 2025 10:00:00 +0800</lastBuildDate>
     
     
-    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://anburger.site/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>Webhook实现Github自动推送到Linux自动部署</title>
-      <link>https://example.org/post/webhook-github/</link>
+      <link>https://anburger.site/post/webhook-github/</link>
       <pubDate>Wed, 23 Jul 2025 10:00:00 &#43;0800</pubDate>
       <author>yang_zc@aliyun.com (Anburger)</author>
-      <guid>https://example.org/post/webhook-github/</guid>
+      <guid>https://anburger.site/post/webhook-github/</guid>
       <description>
         <![CDATA[<h1>Webhook实现Github自动推送到Linux自动部署</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
@@ -36,7 +36,7 @@
 </h2><p>&#x1f4cd;例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>
 <p>&#x31;&#xfe0f;&#x20e3; ​进入<code>Github</code>仓库，<code>Settings-&gt;Webhooks-&gt;Add webhook</code></p>
         
-        <hr><p>本文2025-07-23首发于<a href='https://example.org/'>Anby Demara's Homepage</a>，最后修改于2025-07-23</p>]]>
+        <hr><p>本文2025-07-23首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-07-23</p>]]>
       </description>
       
         <category>自动化工具</category><category>Github</category>
@@ -47,10 +47,10 @@
 
     <item>
       <title>CauseHSI项目说明</title>
-      <link>https://example.org/post/causehsi-readme/</link>
+      <link>https://anburger.site/post/causehsi-readme/</link>
       <pubDate>Mon, 21 Jul 2025 22:57:57 &#43;0800</pubDate>
       <author>yang_zc@aliyun.com (Anburger)</author>
-      <guid>https://example.org/post/causehsi-readme/</guid>
+      <guid>https://anburger.site/post/causehsi-readme/</guid>
       <description>
         <![CDATA[<h1>CauseHSI项目说明</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
@@ -59,7 +59,7 @@
 1 简介
 </h1><p>CauseHSI项目为论文CauseHSI: Cross-scene Hyperspectral image classifaction via Causal Disentanglement提供代码实现。CauseHSI用于高光谱图像跨场景分类任务，其架构图如下：</p>
         
-        <hr><p>本文2025-07-21首发于<a href='https://example.org/'>Anby Demara's Homepage</a>，最后修改于2025-07-22</p>]]>
+        <hr><p>本文2025-07-21首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-07-22</p>]]>
       </description>
       
     </item>
@@ -68,16 +68,16 @@
 
     <item>
       <title>PicGo实现Typora插入图片上传服务</title>
-      <link>https://example.org/post/picgo-typora/</link>
+      <link>https://anburger.site/post/picgo-typora/</link>
       <pubDate>Tue, 22 Jul 2025 12:00:00 &#43;0800</pubDate>
       <author>yang_zc@aliyun.com (Anburger)</author>
-      <guid>https://example.org/post/picgo-typora/</guid>
+      <guid>https://anburger.site/post/picgo-typora/</guid>
       <description>
         <![CDATA[<h1>PicGo实现Typora插入图片上传服务</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
           <p>现在已经有非常多的快速搭建<strong>博客站</strong>的工具，例如<code>JeckII、Hexo、Hugo</code>等，它们都具有非常优秀的使用体验，并且可以通过<code>GitHub</code>、<code>CloudFlare</code>等工具进行免费部署。利用它们成功搭建出自己的博客站后，往往使用<code>Markdown</code>进行博客内容撰写。在撰写过程中，我们会发现处理图片时会面临一些窘境：</p>
         
-        <hr><p>本文2025-07-22首发于<a href='https://example.org/'>Anby Demara's Homepage</a>，最后修改于2025-07-22</p>]]>
+        <hr><p>本文2025-07-22首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-07-22</p>]]>
       </description>
       
         <category>自动化工具</category>
