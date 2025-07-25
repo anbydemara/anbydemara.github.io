@@ -3,7 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://anburger.site/</loc>
-    <lastmod>2025-07-25T00:00:00+00:00</lastmod>
+    <lastmod>2025-07-25T21:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://anburger.site/friend/</loc>
+    <lastmod>2025-07-25T21:00:00+08:00</lastmod>
   </url><url>
     <loc>https://anburger.site/tools/</loc>
     <lastmod>2025-07-25T00:00:00+00:00</lastmod>
@@ -34,9 +37,6 @@
   </url><url>
     <loc>https://anburger.site/archives/</loc>
     <lastmod>2022-07-26T21:46:25+08:00</lastmod>
-  </url><url>
-    <loc>https://anburger.site/friend/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
   </url><url>
     <loc>https://anburger.site/tags/</loc>
   </url>
