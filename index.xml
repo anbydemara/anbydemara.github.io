@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Anby Demara&#39;s Homepage</title>
-    <link>https://example.org/</link>
+    <link>https://example.org/algolia.json</link>
     <description>Recent content from Anby Demara&#39;s Homepage</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
