@@ -30,7 +30,9 @@
       <description>
         <![CDATA[<h1>Webhook实现Github自动推送到Linux自动部署</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
-          <h2 id="1-github配置webhook">
+          <p>&#x2600;&#xfe0f; 场景：<code>Github</code>中代码更新后自动推送到服务器并部署</p>
+<p>&#x1f527; 工具：<code>Webhook</code>​</p>
+<h2 id="1-github配置webhook">
 <a class="header-anchor" href="#1-github%e9%85%8d%e7%bd%aewebhook"></a>
 1. Github配置Webhook
 </h2><p>&#x1f4cd;例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>

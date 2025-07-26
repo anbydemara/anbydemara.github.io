@@ -297,7 +297,9 @@
       >GITHUB</a
     ></div>
 </div>
-    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="1-github配置webhook">
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><p>&#x2600;&#xfe0f; 场景：<code>Github</code>中代码更新后自动推送到服务器并部署</p>
+<p>&#x1f527; 工具：<code>Webhook</code>​</p>
+<h2 id="1-github配置webhook">
 <a class="header-anchor" href="#1-github%e9%85%8d%e7%bd%aewebhook"></a>
 1. Github配置Webhook
 </h2><p>&#x1f4cd;例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>
@@ -334,7 +336,7 @@
 <h3 id="22-配置hook">
 <a class="header-anchor" href="#22-%e9%85%8d%e7%bd%aehook"></a>
 2.2 配置hook
-</h3><p>&#x31;&#xfe0f;&#x20e3; 新建<code>hook.json</code></p>
+</h3><p>&#x31;&#xfe0f;&#x20e3; 新建<code>hook.json</code>（自定义路径，这里存放在webhook安装目录下新建的<code>my-scripts</code>文件夹中）</p>
 <p>该文件配置了一些规则，主要用于请求校验。在<code>Github</code>中我们配置了仓库<code>push</code>事件时，将使用<code>webhook</code>功能发送一个<code>POST</code>请求。在服务器上安装了<code>webhook</code>后，就可以监听对应的端口处理该请求。为了确保接受到的请求是<code>Github</code>触发指定事件时发送的，需进行校验：</p>
 <ul>
 <li><code>id</code>：需要与<code>Github</code>中配置<code>PayLoad URL</code>时指定的<code>id</code>一致</li>
@@ -372,7 +374,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">]</span>
-</span></span></code></pre></div><p>&#x32;&#xfe0f;&#x20e3; 新建执行脚本<code>rebuildblog.sh</code></p>
+</span></span></code></pre></div><p>&#x32;&#xfe0f;&#x20e3; 新建执行脚本<code>rebuildblog.sh</code>（自定义路径，这里存放在webhook安装目录下新建的<code>my-scripts</code>文件夹中）</p>
 <p>通过上一步<code>hook.json</code>校验后，将自动执行该脚本，我们可以在这里执行部署任务</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">cd</span> /root/docker/nginx/html/
@@ -387,7 +389,9 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 启动webhook，只当hook.json，默认监听9000端口</span>
 </span></span><span class="line"><span class="cl">./webhook -hooks ./my-scripts/hooks.json -verbose
 </span></span></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250726212413583.png" alt="image-20250726212413583"></p>
-<p>测试：push代码到仓库后</p>
+<p>测试：<code>push</code>代码到仓库后，成功执行脚本</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250726212624165.png" alt="image-20250726212624165"></p>
+<p>到这里，我们便实现了<code>push</code>代码到<code>Github</code>，自动通知服务器并执行相应指令的基本过程。接下来设置webhook为自启动服务。</p>
 <h2 id="3-设置开机自启动">
 <a class="header-anchor" href="#3-%e8%ae%be%e7%bd%ae%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af%e5%8a%a8"></a>
 3. 设置开机自启动
@@ -421,7 +425,7 @@
 </span></span><span class="line"><span class="cl">systemctl status webhook
 </span></span></code></pre></div><p>&#x1f389; Congratulations! 我们已经实现基本的自动化部署了，你可以尽情的在此基础上进行扩展，例如​完善请求校验处理、按需求撰写你的执行脚本等。</p>
 </div>
-    <footer class="article-footer"><div class="share-wrapper"><a href="https://connect.qq.com/widget/shareqq/index.html?url=https://anburger.site/post/webhook-github/&amp;title=Webhook%e5%ae%9e%e7%8e%b0Github%e8%87%aa%e5%8a%a8%e6%8e%a8%e9%80%81%e5%88%b0Linux%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2&amp;desc=%0d1.%20Github%e9%85%8d%e7%bd%aeWebhook%0d&amp;#x1f4cd;%e4%be%8b%e5%a6%82%e6%88%91%e5%9c%a8anbydemara.github.io%e8%af%a5%e4%bb%93%e5%ba%93%e4%b8%ad%e5%ad%98%e5%82%a8%e4%ba%86%e6%88%91%e7%9a%84%e9%9d%99%e6%80%81%e5%8d%9a%e5%ae%a2%e7%bd%91%e7%ab%99%ef%bc%8c%e6%88%91%e5%b8%8c%e6%9c%9b%e5%bd%93%e6%88%91push%e5%88%b0%e8%af%a5%e4%bb%93%e5%ba%93%e6%97%b6%ef%bc%8cGithub%e8%87%aa%e5%8a%a8%e9%80%9a%e7%9f%a5%e6%88%91%e7%9a%84%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%b9%b6%e6%89%a7%e8%a1%8c%e8%87%aa%e5%ae%9a%e4%b9%89%e6%8c%87%e4%bb%a4%e3%80%82%0a&amp;#x31;&amp;#xfe0f;&amp;#x20e3;%20%e2%80%8b%e8%bf%9b%e5%85%a5Github%e4%bb%93%e5%ba%93%ef%bc%8cSettings-&amp;gt;Webhooks-&amp;gt;Add%20webhook%0a&amp;source=https://anburger.site/" target="_blank" rel="noopener noreferrer" title="Webhook实现Github自动推送到Linux自动部署">
+    <footer class="article-footer"><div class="share-wrapper"><a href="https://connect.qq.com/widget/shareqq/index.html?url=https://anburger.site/post/webhook-github/&amp;title=Webhook%e5%ae%9e%e7%8e%b0Github%e8%87%aa%e5%8a%a8%e6%8e%a8%e9%80%81%e5%88%b0Linux%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2&amp;desc=&amp;#x2600;&amp;#xfe0f;%20%e5%9c%ba%e6%99%af%ef%bc%9aGithub%e4%b8%ad%e4%bb%a3%e7%a0%81%e6%9b%b4%e6%96%b0%e5%90%8e%e8%87%aa%e5%8a%a8%e6%8e%a8%e9%80%81%e5%88%b0%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%b9%b6%e9%83%a8%e7%bd%b2%0a&amp;#x1f527;%20%e5%b7%a5%e5%85%b7%ef%bc%9aWebhook%e2%80%8b%0a1.%20Github%e9%85%8d%e7%bd%aeWebhook%0d&amp;#x1f4cd;%e4%be%8b%e5%a6%82%e6%88%91%e5%9c%a8anbydemara.github.io%e8%af%a5%e4%bb%93%e5%ba%93%e4%b8%ad%e5%ad%98%e5%82%a8%e4%ba%86%e6%88%91%e7%9a%84%e9%9d%99%e6%80%81%e5%8d%9a%e5%ae%a2%e7%bd%91%e7%ab%99%ef%bc%8c%e6%88%91%e5%b8%8c%e6%9c%9b%e5%bd%93%e6%88%91push%e5%88%b0%e8%af%a5%e4%bb%93%e5%ba%93%e6%97%b6%ef%bc%8cGithub%e8%87%aa%e5%8a%a8%e9%80%9a%e7%9f%a5%e6%88%91%e7%9a%84%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%b9%b6%e6%89%a7%e8%a1%8c%e8%87%aa%e5%ae%9a%e4%b9%89%e6%8c%87%e4%bb%a4%e3%80%82%0a&amp;#x31;&amp;#xfe0f;&amp;#x20e3;%20%e2%80%8b%e8%bf%9b%e5%85%a5Github%e4%bb%93%e5%ba%93%ef%bc%8cSettings-&amp;gt;Webhooks-&amp;gt;Add%20webhook%0a&amp;source=https://anburger.site/" target="_blank" rel="noopener noreferrer" title="Webhook实现Github自动推送到Linux自动部署">
       <div class="share-icon icon icon-qq"></div>
     </a><a href="javascript:;"  title="Webhook实现Github自动推送到Linux自动部署">
       <div class="share-icon icon icon-weixin"><div id="share-weixin">
@@ -507,7 +511,7 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;3.3k</span
+          >&nbsp;3.5k</span
         >
         &nbsp;|&nbsp;
         <span class="icon-coffee">&nbsp;00:08</span>
@@ -716,7 +720,7 @@
           author: "Anburger",
           title: "Webhook实现Github自动推送到Linux自动部署",
           url: "https:\/\/anburger.site\/post\/webhook-github\/",
-          description: "\r1. Github配置Webhook\r\u0026#x1f4cd;例如我在anbydemara.github.io该仓库中存储了我的静态博客网站，我希望当我push到该仓库时，Github自动通知我的服务器并执行自定义指令。\n\u0026#x31;\u0026#xfe0f;\u0026#x20e3; ​进入Github仓库，Settings-\u0026gt;Webhooks-\u0026gt;Add webhook\n",
+          description: "\u0026#x2600;\u0026#xfe0f; 场景：Github中代码更新后自动推送到服务器并部署\n\u0026#x1f527; 工具：Webhook​\n1. Github配置Webhook\r\u0026#x1f4cd;例如我在anbydemara.github.io该仓库中存储了我的静态博客网站，我希望当我push到该仓库时，Github自动通知我的服务器并执行自定义指令。\n\u0026#x31;\u0026#xfe0f;\u0026#x20e3; ​进入Github仓库，Settings-\u0026gt;Webhooks-\u0026gt;Add webhook\n",
           cover: "https:\/\/qiniu.anburger.site\/cover\/Tech.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
