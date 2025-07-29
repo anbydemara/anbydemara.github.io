@@ -86,5 +86,48 @@
       
     </item>
     
+    
+
+    <item>
+      <title>Docker常用容器部署</title>
+      <link>https://anburger.site/post/docker-run/</link>
+      <pubDate>Sun, 20 Jul 2025 12:00:00 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://anburger.site/post/docker-run/</guid>
+      <description>
+        <![CDATA[<h1>Docker常用容器部署</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
+        
+          <hr>
+<p>nginx</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--name nginx <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 80:80 -p 443:443 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v ~/docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v ~/docker/nginx/conf/default.conf:/etc/nginx/conf.d/default.conf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v ~/docker/nginx/html:/usr/share/nginx/html <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v ~/docker/nginx/ssl:/etc/nginx/ssl <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 复制初始化后的nginx.conf、default.conf</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 必要时指定network</span>
+</span></span></code></pre></div><hr>
+<p>mysql</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--name mysql <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 3306:3306 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /root/mysql/data:/var/lib/mysql <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /root/mysql/conf:/etc/mysql/conf.d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--network apps-net<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>mysql
+</span></span></code></pre></div><hr>
+<p>redis</p>
+        
+        <hr><p>本文2025-07-20首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-07-20</p>]]>
+      </description>
+      
+    </item>
+    
   </channel>
 </rss>

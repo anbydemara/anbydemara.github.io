@@ -159,7 +159,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">3</div>
+    <div>文章</div><div class="sidebar-state-number">4</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -273,6 +273,8 @@
               <a href="/post/picgo-typora/">PicGo实现Typora插入图片上传服务</a>
             </li><li>
               <a href="/post/causehsi-readme/">CauseHSI项目说明</a>
+            </li><li>
+              <a href="/post/docker-run/">Docker常用容器部署</a>
             </li></ul>
       </div>
     </div>
@@ -426,6 +428,48 @@
     </div>
   </div>
 </div>
+<div class="post-wrapper">
+  <div
+    class="
+      post-wrap-right
+    "
+    data-aos="fade-up"
+  ><a
+        class="post-link"
+        href="/post/docker-run/"
+        aria-label="Docker常用容器部署"
+      >
+      </a><div
+      class="
+        post-cover-right
+      "
+    ><img
+          data-src="https://qiniu.anburger.site/cover/Blog.webp"
+          data-sizes="auto"
+          alt=""
+          class="lazyload"
+        /></div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span
+          ><span class="icon-calendar"></span
+          >2025-07-20</span
+        >
+        <span
+          ><span class="icon-pencil"></span
+          >145 字</span
+        >
+        <span
+          ><span class="icon-clock"></span
+          >1 分钟</span
+        >
+      </div>
+      <h2 class="post-title">Docker常用容器部署</h2>
+      <article class="post-article"> nginx
+docker run -d \ --name nginx \ -p 80:80 -p 443:443 \ -v ~/docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \ -v ~/docker/nginx/conf/default.conf:/etc/nginx/conf.d/default.conf \ -v ~/docker/nginx/html:/usr/share/nginx/html \ -v ~/docker/nginx/ssl:/etc/nginx/ssl \ nginx # 复制初始化后 …</article>
+    </div>
+  </div>
+</div>
 <nav id="page-nav" data-aos="fade-up"><span class="page-number current">1</span></nav>
 </section>
         </div><footer id="footer">
@@ -447,10 +491,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;3.5k</span
+          >&nbsp;3.7k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:08</span>
+        <span class="icon-coffee">&nbsp;00:09</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -484,7 +528,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">3</div>
+    <div>文章</div><div class="sidebar-state-number">4</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
