@@ -12,12 +12,33 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Wed, 23 Jul 2025 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Aug 2025 16:55:00 +0800</lastBuildDate>
     
     
     <atom:link href="https://anburger.site/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>什么是云函数</title>
+      <link>https://anburger.site/post/what-is-cloud-function/</link>
+      <pubDate>Fri, 01 Aug 2025 16:55:00 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://anburger.site/post/what-is-cloud-function/</guid>
+      <description>
+        <![CDATA[<h1>什么是云函数</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
+        
+          <h2 id="什么是云函数">
+<a class="header-anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af%e4%ba%91%e5%87%bd%e6%95%b0"></a>
+什么是云函数？
+</h2><p>云函数（Cloud Function），也称为无服务器计算（Serverless Computing）或函数即服务（Function-as-a-Service, FaaS），是一种事件驱动的计算服务。它允许您编写和运行代码，而无需管理自己的服务器。</p>
+        
+        <hr><p>本文2025-08-01首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-01</p>]]>
+      </description>
+      
+    </item>
     
     
 
@@ -83,6 +104,33 @@
       </description>
       
         <category>自动化工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>vercel Serverless笔记</title>
+      <link>https://anburger.site/post/note-of-vercel-edge-function/</link>
+      <pubDate>Fri, 01 Aug 2025 21:00:00 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://anburger.site/post/note-of-vercel-edge-function/</guid>
+      <description>
+        <![CDATA[<h1>vercel Serverless笔记</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
+        
+          <h2 id="1-环境准备">
+<a class="header-anchor" href="#1-%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87"></a>
+1 环境准备
+</h2><p>&#x31;&#xfe0f;&#x20e3;nodejs</p>
+<p><a href="https://nodejs.org/">https://nodejs.org/</a></p>
+<p>&#x32;&#xfe0f;&#x20e3;注册vercel</p>
+<p><a href="https://vercel.com/">https://vercel.com/</a></p>
+<p>&#x33;&#xfe0f;&#x20e3;Vercel CLI</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm i -g vercel
+</span></span></code></pre></div><p>&#x34;&#xfe0f;&#x20e3;命令行登录vercel</p>
+        
+        <hr><p>本文2025-08-01首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-07-21</p>]]>
+      </description>
       
     </item>
     

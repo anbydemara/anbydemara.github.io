@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  Github | Anburger
+  vercel Serverless笔记 | Anburger
 </title>
 <meta
   name="description"
@@ -37,24 +37,24 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="Github | Anburger" />
+  <meta property="og:title" content="vercel Serverless笔记 | Anburger" />
   <meta
     property="og:description"
     content="安比在吃汉堡..."
   />
-  <meta property="og:url" content="https://anburger.site/categories/github/" />
+  <meta property="og:url" content="https://anburger.site/post/note-of-vercel-edge-function/" />
   <meta
     property="og:site_name"
     content="Anby Demara&#39;s Homepage"
   />
   <meta
     property="og:image"
-    content="/"
+    content="https://qiniu.anburger.site/cover/Note.webp"
   />
   <meta property="article:author" content="Anburger" />
-  <meta property="article:published_time" content="2025-07-23T10:00:00&#43;08:00" />
-  <meta property="article:modified_time" content="2025-07-23T10:00:00&#43;08:00" /><meta name="twitter:card" content="summary" />
-  <meta name="twitter:image" content="/" /><link rel="alternate" type="application/rss+xml" href="https://anburger.site/categories/github/index.xml" title="Anby Demara's Homepage">
+  <meta property="article:published_time" content="2025-08-01T21:00:00&#43;08:00" />
+  <meta property="article:modified_time" content="2025-07-21T21:00:00&#43;08:00" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="https://qiniu.anburger.site/cover/Note.webp" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.ccf26489d62543d1985feb38b8685532c4312faa550e2e2a3ca8494025fc7db6.css" />
 <link
     rel="preload"
@@ -134,19 +134,31 @@
         <a class="main-nav-link" href="/tools">工具</a>
       </span><a id="main-nav-toggle" class="nav-icon"></a>
   </nav>
-  <nav id="sub-nav"><a id="nav-rss-link" class="nav-icon" href="/categories/github/index.xml" title="RSS 订阅" target="_blank"></a><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a></nav></div>
-<header id="header"><picture></picture><img crossorigin="anonymous" fetchpriority="high" src="/images/banner.webp" alt="Github"><div id="header-outer">
+  <nav id="sub-nav"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a></nav></div>
+<header id="header"><picture></picture>
+    <img crossorigin="anonymous" fetchpriority="high" src="https://qiniu.anburger.site/cover/Note.webp" alt="vercel Serverless笔记"><div id="header-outer">
     <div id="header-title"><a href="/" id="logo">
-            <h1 data-aos="slide-up">目录</h1>
-          </a><h2 id="subtitle-wrap" data-aos="slide-down"><a href="/" id="subtitle">Github</a></h2></div>
+            <h1 data-aos="slide-up">vercel Serverless笔记</h1>
+          </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
           
-          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper ">
+          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper wrap-sticky">
     <div
       class="sidebar-wrap"
       data-aos="fade-up"
-    ><div class="sidebar-author">
+    ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-环境准备">1 环境准备</a></li>
+    <li><a href="#2-quick-start">2 Quick Start</a></li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
     data-src="/avatar/avatar.webp"
     data-sizes="auto"
@@ -237,86 +249,143 @@
       <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
       <div class="sidebar-menu-link">工具</div>
     </div></div>
-</div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
   </div>
 
-  <div class="sidebar-widget"><div class="widget-wrapper">
-    <div
-      class="widget-wrap"
-      data-aos="fade-up"
-    >
-      <div style="display: flex; justify-content: space-between;">
-        <h3 class="widget-title">分类</h3></div>
-      <div class="widget">
-        <ul class="category-list"><li class="category-list-item">
-                <a class="category-list-link" href="/categories/github/"
-                  >Github</a
-                >
-              </li><li class="category-list-item">
-                <a class="category-list-link" href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/"
-                  >自动化工具</a
-                >
-              </li></ul>
-      </div>
-    </div>
-  </div><div class="widget-wrapper">
-    <div
-      class="widget-wrap"
-      data-aos="fade-up"
-    >
-      <h3 class="widget-title">最新文章</h3>
-      <div class="widget">
-        <ul><li>
-              <a href="/post/note-of-vercel-edge-function/">vercel Serverless笔记</a>
-            </li><li>
-              <a href="/post/what-is-cloud-function/">什么是云函数</a>
-            </li><li>
-              <a href="/post/webhook-github/">Webhook实现Github自动推送到Linux自动部署</a>
-            </li><li>
-              <a href="/post/picgo-typora/">PicGo实现Typora插入图片上传服务</a>
-            </li><li>
-              <a href="/post/causehsi-readme/">CauseHSI项目说明</a>
-            </li></ul>
-      </div>
-    </div>
-  </div></div></aside>
-<section id="main"><div
-    class="archives-outer-wrap"
+  <div class="sidebar-widget"></div></aside>
+<section id="main"><article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
     data-aos="fade-up"
-  ><div class="tag-wrap"></div>
-<div class="category-wrap"><div
-      class="archives-category-list-item"
-      data-aos="zoom-in"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2025-08-01 21:00:00 &#43;0800 CST" itemprop="datePublished"
+      >2025-08-01</time
     >
-      <a class="archives-category-list-link" href="/categories/github/"
-        >Github</a
-      >
-    </div><div
-      class="archives-category-list-item"
-      data-aos="zoom-in"
+    <time style="display: none;" id="post-update-time"
+      >2025-07-21</time
     >
-      <a class="archives-category-list-link" href="/categories/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/"
-        >自动化工具</a
-      >
-    </div></div><section class="archives-wrap" data-aos="fade-up">
-    <div class="archive-year-wrap">
-      <span class="archive-year">2025</span>
-    </div>
-    <ul><li class="archive-article">
-          <div class="archive-article-date-wrap">
-            <span>
-              <time
-                class="dt-published"
-                datetime="2025-07-23 10:00:00 &#43;0800 CST"
-                itemprop="datePublished"
-                >2025-07</time
-              >
-            </span>
-          </div><a class="archive-article-title" href="/post/webhook-github/"
-              >Webhook实现Github自动推送到Linux自动部署</a
-            ></li></ul>
-  </section></div><nav id="page-nav" data-aos="fade-up"><span class="page-number current">1</span></nav>
-</section>
+  </span>
+</div>
+<div class="article-category"></div>
+</div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="1-环境准备">
+<a class="header-anchor" href="#1-%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87"></a>
+1 环境准备
+</h2><p>&#x31;&#xfe0f;&#x20e3;nodejs</p>
+<p><a href="https://nodejs.org/">https://nodejs.org/</a></p>
+<p>&#x32;&#xfe0f;&#x20e3;注册vercel</p>
+<p><a href="https://vercel.com/">https://vercel.com/</a></p>
+<p>&#x33;&#xfe0f;&#x20e3;Vercel CLI</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm i -g vercel
+</span></span></code></pre></div><p>&#x34;&#xfe0f;&#x20e3;命令行登录vercel</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vercel login
+</span></span></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250801220752777.png" alt="image-20250801220752777"></p>
+<h2 id="2-quick-start">
+<a class="header-anchor" href="#2-quick-start"></a>
+2 Quick Start
+</h2><blockquote>
+<p><strong>云函数 (Cloud Functions)</strong>：在 Vercel 平台上，这通常被称为 <strong>Serverless Functions (无服务器函数)</strong>。</p>
+<p>Vercel 的核心理念是<strong>约定优于配置</strong>。你不需要复杂的配置文件，只需要将代码放在正确的目录下，Vercel 就会自动将其部署为 Serverless Function。</p></blockquote>
+<p>核心理念<strong>约定优于配置</strong>的加持下，编码的核心便是：<strong>使用 <code>api/</code> 目录</strong></p>
+<ol>
+<li><strong>创建项目</strong>: 你的项目可以是一个 Next.js 应用，也可以是一个静态网站，甚至是空项目。</li>
+<li><strong>创建 <code>api</code> 目录</strong>: 在你的项目根目录下，创建一个名为 <code>api</code> 的文件夹。</li>
+<li><strong>编写函数代码</strong>: 在 <code>api</code> 目录下创建一个 JavaScript 或 TypeScript 文件。文件名将成为 API 的路径。</li>
+</ol>
+<p>&#x31;&#xfe0f;&#x20e3;新建空项目<code>first-serverless</code> &#x27a1;&#xfe0f; 项目根目录下新建文件夹<code>api</code> &#x27a1;&#xfe0f; <code>New hello.js</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 标准 Nodejs HTTP 处理函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="p">{</span> <span class="nx">name</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">query</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">message</span><span class="o">:</span> <span class="sb">`Hello, </span><span class="si">${</span><span class="nx">name</span> <span class="o">||</span> <span class="s1">&#39;World&#39;</span><span class="si">}</span><span class="sb">! This function is running on the Vercel cloud.`</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>&#x32;&#xfe0f;&#x20e3;部署</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vercel --prod
+</span></span></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250801221517995.png" alt="image-20250801221517995"></p>
+<p>&#x1f6a9;部署成功后得到一个域名，国内访问需要绑定自己的域名，加上后缀<code>api/hello</code>，成功，Congratulations​!&#x1f389;</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250801221800843.png" alt="image-20250801221800843"></p>
+</div>
+    <footer class="article-footer"><div class="share-wrapper"><a href="https://connect.qq.com/widget/shareqq/index.html?url=https://anburger.site/post/note-of-vercel-edge-function/&amp;title=vercel%20Serverless%e7%ac%94%e8%ae%b0&amp;desc=%0d1%20%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87%0d&amp;#x31;&amp;#xfe0f;&amp;#x20e3;nodejs%0ahttps://nodejs.org/%0a&amp;#x32;&amp;#xfe0f;&amp;#x20e3;%e6%b3%a8%e5%86%8cvercel%0ahttps://vercel.com/%0a&amp;#x33;&amp;#xfe0f;&amp;#x20e3;Vercel%20CLI%0anpm%20i%20-g%20vercel%20&amp;#x34;&amp;#xfe0f;&amp;#x20e3;%e5%91%bd%e4%bb%a4%e8%a1%8c%e7%99%bb%e5%bd%95vercel%0a&amp;source=https://anburger.site/" target="_blank" rel="noopener noreferrer" title="vercel Serverless笔记">
+      <div class="share-icon icon icon-qq"></div>
+    </a><a href="javascript:;"  title="vercel Serverless笔记">
+      <div class="share-icon icon icon-weixin"><div id="share-weixin">
+            <div class="share-weixin-dom">
+              <div class="share-weixin-content">
+                <img id="share-weixin-banner"> 
+                <div id="share-weixin-title"></div>
+                <div id="share-weixin-desc"></div>
+              </div>
+              <div class="share-weixin-qrcode">
+                <div class="share-weixin-info">
+                  <div id="share-weixin-author"></div>
+                  <div id="share-weixin-theme">Powered By hugo-theme-reimu</div>
+                </div>
+                <img id="share-weixin-qr" >
+              </div>
+            </div>
+            <div class="share-weixin-canvas"></div>
+          </div></div>
+    </a></div><a
+          data-aos="zoom-in"
+          href="/post/note-of-vercel-edge-function/#comments"
+          class="article-comment-link"
+        >
+          <span
+            class="post-comments-count waline-comment-count"
+            data-path="https//anburger.site/post/note-of-vercel-edge-function/"
+            itemprop="commentCount"
+          ></span>
+          留言
+        </a><span
+          data-aos="zoom-in"
+          class="article-visitor-link"
+        >
+          <span
+            class="waline-pageview-count"
+            data-path="/post/note-of-vercel-edge-function/"
+            >0</span
+          >
+          <em class="post-meta-item-text">阅读量</em>
+        </span><ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap article-nav-link-left"><img
+            data-src="https://qiniu.anburger.site/cover/Blog.webp"
+            data-sizes="auto"
+            alt="什么是云函数"
+            class="lazyload"
+          /><a href="/post/what-is-cloud-function/"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">什么是云函数</h3>
+      </div></nav></article><section id="comments" data-aos="fade-up">
+<div class="comment-header"><h2 class="comment-title">说些什么吧！</h2>
+  <div class="comment-selector">
+    <div class="comment-selector-wrap"><div class="selector-item" data-selector="waline">
+          <span>waline</span>
+        </div></div>
+  </div>
+</div>
+
+<div class="comment-content"><div class="comment waline-comment" data-aos="fade-up"
+     >
+    </div></div>
+</section></section>
         </div><footer id="footer">
   <div style="width: 100%; overflow: hidden">
     <div class="footer-line"></div>
@@ -361,7 +430,18 @@
             <div class="arrow-up"></div>
           </div><div id="mask" class="hide"></div>
       </div><nav id="mobile-nav">
-  <div class="sidebar-wrap"><div class="sidebar-author">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-环境准备">1 环境准备</a></li>
+    <li><a href="#2-quick-start">2 Quick Start</a></li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
     data-src="/avatar/avatar.webp"
     data-sizes="auto"
@@ -452,7 +532,10 @@
       <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
       <div class="sidebar-menu-link">工具</div>
     </div></div>
-</div></nav>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
 </div><div class="site-search">
         <div class="reimu-popup popup">
           <div class="reimu-search">
@@ -523,10 +606,10 @@
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "Anburger",
-          title: "Github",
-          url: "https:\/\/anburger.site\/categories\/github\/",
-          description: "",
-          cover: "https:\/\/anburger.site\/images\/banner.webp",
+          title: "vercel Serverless笔记",
+          url: "https:\/\/anburger.site\/post\/note-of-vercel-edge-function\/",
+          description: "\r1 环境准备\r\u0026#x31;\u0026#xfe0f;\u0026#x20e3;nodejs\nhttps:\/\/nodejs.org\/\n\u0026#x32;\u0026#xfe0f;\u0026#x20e3;注册vercel\nhttps:\/\/vercel.com\/\n\u0026#x33;\u0026#xfe0f;\u0026#x20e3;Vercel CLI\nnpm i -g vercel \u0026#x34;\u0026#xfe0f;\u0026#x20e3;命令行登录vercel\n",
+          cover: "https:\/\/qiniu.anburger.site\/cover\/Note.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
           if (_$$('.article-entry a.article-gallery-item').length > 0) {
@@ -659,7 +742,7 @@
             envId: '',
             region: '',
             urls: [
-              'https\/\/anburger.site\/categories\/github\/'
+              'https\/\/anburger.site\/post\/note-of-vercel-edge-function\/'
             ],
             includeReply: false
           }).then((res) => {
