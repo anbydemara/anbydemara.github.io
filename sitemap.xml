@@ -5,7 +5,13 @@
     <loc>https://anburger.site/</loc>
     <lastmod>2025-08-01T16:55:00+08:00</lastmod>
   </url><url>
+    <loc>https://anburger.site/categories/</loc>
+    <lastmod>2025-07-23T10:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://anburger.site/post/note-of-vercel-edge-function/</loc>
+    <lastmod>2025-07-21T21:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://anburger.site/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-07-21T21:00:00+08:00</lastmod>
   </url><url>
     <loc>https://anburger.site/post/what-is-cloud-function/</loc>
@@ -16,9 +22,6 @@
   </url><url>
     <loc>https://anburger.site/tools/</loc>
     <lastmod>2025-07-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://anburger.site/categories/</loc>
-    <lastmod>2025-07-23T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://anburger.site/categories/github/</loc>
     <lastmod>2025-07-23T10:00:00+08:00</lastmod>

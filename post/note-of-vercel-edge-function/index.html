@@ -175,7 +175,7 @@
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      2
+      3
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -279,7 +279,12 @@
     >
   </span>
 </div>
-<div class="article-category"></div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/%e7%ac%94%e8%ae%b0"
+      data-aos="zoom-in"
+      >笔记</a
+    ></div>
 </div>
     <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="1-环境准备">
 <a class="header-anchor" href="#1-%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87"></a>
@@ -316,8 +321,16 @@
 </span></span></code></pre></div><p>&#x32;&#xfe0f;&#x20e3;部署</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vercel --prod
 </span></span></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250801221517995.png" alt="image-20250801221517995"></p>
+<p>执行命令后：</p>
+<ul>
+<li>Vercel 会自动检测到 <code>api/hello.js</code> 文件。</li>
+<li>它会将这个文件打包成一个独立的 Serverless Function。</li>
+<li>它会为你生成一个可访问的 URL 端点：<code>https://&lt;你的域名&gt;.vercel.app/api/hello</code>。</li>
+<li>当你访问 <code>.../api/hello</code> 时，这个函数就会在云端被触发执行，例如<code>.../api/hello</code>、<code>.../api/hello?name=anby</code>。</li>
+</ul>
 <p>&#x1f6a9;部署成功后得到一个域名，国内访问需要绑定自己的域名，加上后缀<code>api/hello</code>，成功，Congratulations​!&#x1f389;</p>
 <p><img src="https://qiniu.anburger.site/post/image-20250801221800843.png" alt="image-20250801221800843"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250801222424603.png" alt="image-20250801222424603"></p>
 </div>
     <footer class="article-footer"><div class="share-wrapper"><a href="https://connect.qq.com/widget/shareqq/index.html?url=https://anburger.site/post/note-of-vercel-edge-function/&amp;title=vercel%20Serverless%e7%ac%94%e8%ae%b0&amp;desc=%0d1%20%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87%0d&amp;#x31;&amp;#xfe0f;&amp;#x20e3;nodejs%0ahttps://nodejs.org/%0a&amp;#x32;&amp;#xfe0f;&amp;#x20e3;%e6%b3%a8%e5%86%8cvercel%0ahttps://vercel.com/%0a&amp;#x33;&amp;#xfe0f;&amp;#x20e3;Vercel%20CLI%0anpm%20i%20-g%20vercel%20&amp;#x34;&amp;#xfe0f;&amp;#x20e3;%e5%91%bd%e4%bb%a4%e8%a1%8c%e7%99%bb%e5%bd%95vercel%0a&amp;source=https://anburger.site/" target="_blank" rel="noopener noreferrer" title="vercel Serverless笔记">
       <div class="share-icon icon icon-qq"></div>
@@ -405,7 +418,7 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;5.2k</span
+          >&nbsp;5.3k</span
         >
         &nbsp;|&nbsp;
         <span class="icon-coffee">&nbsp;00:14</span>
@@ -458,7 +471,7 @@
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      2
+      3
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
