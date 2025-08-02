@@ -22,20 +22,20 @@
     
 
     <item>
-      <title>vercel Serverless笔记</title>
+      <title>Vercel Serverless笔记</title>
       <link>https://anburger.site/post/note-of-vercel-edge-function/</link>
       <pubDate>Fri, 01 Aug 2025 21:00:00 &#43;0800</pubDate>
       <author>yang_zc@aliyun.com (Anburger)</author>
       <guid>https://anburger.site/post/note-of-vercel-edge-function/</guid>
       <description>
-        <![CDATA[<h1>vercel Serverless笔记</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
+        <![CDATA[<h1>Vercel Serverless笔记</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
           <h2 id="1-环境准备">
 <a class="header-anchor" href="#1-%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87"></a>
 1 环境准备
 </h2><p>&#x31;&#xfe0f;&#x20e3;nodejs</p>
 <p><a href="https://nodejs.org/">https://nodejs.org/</a></p>
-<p>&#x32;&#xfe0f;&#x20e3;注册vercel</p>
+<p>&#x32;&#xfe0f;&#x20e3;注册Vercel</p>
 <p><a href="https://vercel.com/">https://vercel.com/</a></p>
 <p>&#x33;&#xfe0f;&#x20e3;Vercel CLI</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npm i -g vercel
