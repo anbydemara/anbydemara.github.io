@@ -12,12 +12,53 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Fri, 01 Aug 2025 16:55:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 Aug 2025 21:00:00 +0800</lastBuildDate>
     
     
     <atom:link href="https://anburger.site/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>WSL笔记</title>
+      <link>https://anburger.site/post/note-of-wsl/</link>
+      <pubDate>Sun, 03 Aug 2025 21:00:00 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://anburger.site/post/note-of-wsl/</guid>
+      <description>
+        <![CDATA[<h1>WSL笔记</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
+        
+          <h2 id="安装">
+<a class="header-anchor" href="#%e5%ae%89%e8%a3%85"></a>
+安装
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 默认安装Unbuntu</span>
+</span></span><span class="line"><span class="cl">wsl --install
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 安装其他分发版</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看其他分发版</span>
+</span></span><span class="line"><span class="cl">wsl --list --online
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装指定分发版</span>
+</span></span><span class="line"><span class="cl">wsl --install -d Debian
+</span></span></code></pre></div><h2 id="备份卸载">
+<a class="header-anchor" href="#%e5%a4%87%e4%bb%bd%e5%8d%b8%e8%bd%bd"></a>
+备份、卸载
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 备份</span>
+</span></span><span class="line"><span class="cl">wsl --export Debian debian.tar
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 卸载</span>
+</span></span><span class="line"><span class="cl">wsl --unregister Debian
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 从备份导入</span>
+</span></span><span class="line"><span class="cl">wsl --import Debian D:/wsl .<span class="se">\d</span>ebian.tar
+</span></span></code></pre></div>
+        
+        <hr><p>本文2025-08-03首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-03</p>]]>
+      </description>
+      
+        <category>笔记</category><category>WSL</category><category>Windows</category>
+      
+    </item>
     
     
 
