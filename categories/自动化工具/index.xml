@@ -37,6 +37,127 @@
 1. Github配置Webhook
 </h2><p>&#x1f4cd;例如我在<a href="https://github.com/anbydemara/anbydemara.github.io">anbydemara.github.io</a>该仓库中存储了我的静态博客网站，我希望当我<code>push</code>到该仓库时，<code>Github</code>自动通知我的服务器并执行自定义指令。</p>
 <p>&#x31;&#xfe0f;&#x20e3; ​进入<code>Github</code>仓库，<code>Settings-&gt;Webhooks-&gt;Add webhook</code></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250723111230291.png" alt="image-20250723111230291"></p>
+<p>&#x32;&#xfe0f;&#x20e3; 填写配置信息</p>
+<ul>
+<li>
+<p><code>PayLoad URL</code>：<code>http://your_servier_ip:port/path/{id}</code>，其中<code>port:9000，path:hooks</code>都是默认值，我们保存不变。修改修改为自己的ip地址，并且为该<code>Payload</code>自定义一个<code>id</code></p>
+</li>
+<li>
+<p><code>Content type</code>：选择<code>application/json</code>格式</p>
+</li>
+<li>
+<p><code>Secret</code>：设置自己的<code>Secret token</code>用于验证，可以使用一个随机字符串</p>
+</li>
+<li>
+<p><code>webhook</code>触发条件：<code>Just push event</code>表示push代码到仓库时触发，可以自定义其他事件</p>
+<p>其他保持默认，最后<code>Update webhook</code>：</p>
+</li>
+</ul>
+<p><img src="https://qiniu.anburger.site/post/image-20250723111759923.png" alt="image-20250723111759923"></p>
+<h2 id="2-服务器创建hook">
+<a class="header-anchor" href="#2-%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%88%9b%e5%bb%bahook"></a>
+2. 服务器创建hook
+</h2><p>&#x1f4cd;我们使用<a href="https://github.com/adnanh/webhook">webhook</a>工具：</p>
+<blockquote>
+<p><a href="https://github.com/adnanh/webhook">webhook</a> is a lightweight configurable tool written in Go, that allows you to easily create HTTP endpoints (hooks) on your server, which you can use to execute configured commands. You can also pass data from the HTTP request (such as headers, payload or query variables) to your commands. <a href="https://github.com/adnanh/webhook">webhook</a> also allows you to specify rules which have to be satisfied in order for the hook to be triggered.</p></blockquote>
+<h3 id="21-安装">
+<a class="header-anchor" href="#21-%e5%ae%89%e8%a3%85"></a>
+2.1 安装
+</h3><p>See：<a href="https://github.com/adnanh/webhook/blob/master/README.md">webhook/README.md at master · adnanh/webhook</a></p>
+<p>我的安装目录为<code>/usr/local/src/webhook/</code>，安装成功后，该文件夹下有一个名为<code>webhook</code>的文件，我们为其添加执行权限<code>chmod +x webhook</code></p>
+<h3 id="22-配置hook">
+<a class="header-anchor" href="#22-%e9%85%8d%e7%bd%aehook"></a>
+2.2 配置hook
+</h3><p>&#x31;&#xfe0f;&#x20e3; 新建<code>hook.json</code>（自定义路径，这里存放在webhook安装目录下新建的<code>my-scripts</code>文件夹中）</p>
+<p>该文件配置了一些规则，主要用于请求校验。在<code>Github</code>中我们配置了仓库<code>push</code>事件时，将使用<code>webhook</code>功能发送一个<code>POST</code>请求。在服务器上安装了<code>webhook</code>后，就可以监听对应的端口处理该请求。为了确保接受到的请求是<code>Github</code>触发指定事件时发送的，需进行校验：</p>
+<ul>
+<li><code>id</code>：需要与<code>Github</code>中配置<code>PayLoad URL</code>时指定的<code>id</code>一致</li>
+<li><code>execute-command</code>：自定义执行脚本文件路径，请求校验成功后要执行的脚本，这里我在<code>/usr/local/src/webhook/my-scripts</code>新建了一个<code>rebuildblog.sh</code>脚本</li>
+<li><code>secret</code>：需与<code>Github</code>中配置的一致</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="s2">&#34;anburger-blog-rebuild&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;execute-command&#34;</span><span class="p">:</span> <span class="s2">&#34;/usr/local/src/webhook/my-scripts/rebuildblog.sh&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;trigger-rule&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;and&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;match&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;payload-hmac-sha1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;secret&#34;</span><span class="p">:</span> <span class="s2">&#34;yoursecret&#34;</span><span class="p">,</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;parameter&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;header&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;X-Hub-Signature&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;match&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;value&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;refs/heads/main&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;parameter&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;payload&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;ref&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>&#x32;&#xfe0f;&#x20e3; 新建执行脚本<code>rebuildblog.sh</code>（自定义路径，这里存放在webhook安装目录下新建的<code>my-scripts</code>文件夹中）</p>
+<p>通过上一步<code>hook.json</code>校验后，将自动执行该脚本，我们可以在这里执行部署任务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">cd</span> /root/docker/nginx/html/
+</span></span><span class="line"><span class="cl"><span class="c1"># 执行你的指令，简单示例</span>
+</span></span><span class="line"><span class="cl">git pull origin main  <span class="c1"># 从github拉取新代码</span>
+</span></span><span class="line"><span class="cl">docker restart nginx  <span class="c1"># 重启nginx    </span>
+</span></span></code></pre></div><p>给脚本增加执行权限<code>chmod +x rebuildblog.sh</code></p>
+<p>&#x33;&#xfe0f;&#x20e3; 启动<code>webhook</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 进入webhook安装路径</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /usr/local/src/webhook
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动webhook，只当hook.json，默认监听9000端口</span>
+</span></span><span class="line"><span class="cl">./webhook -hooks ./my-scripts/hooks.json -verbose
+</span></span></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250726212413583.png" alt="image-20250726212413583"></p>
+<p>测试：<code>push</code>代码到仓库后，成功执行脚本</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250726212624165.png" alt="image-20250726212624165"></p>
+<p>到这里，我们便实现了<code>push</code>代码到<code>Github</code>，自动通知服务器并执行相应指令的基本过程。接下来设置webhook为自启动服务。</p>
+<h2 id="3-设置开机自启动">
+<a class="header-anchor" href="#3-%e8%ae%be%e7%bd%ae%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af%e5%8a%a8"></a>
+3. 设置开机自启动
+</h2><p>&#x31;&#xfe0f;&#x20e3; 创建服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vi /etc/systemd/system/webhook.service
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span>Webhook Service
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>network.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Type</span><span class="o">=</span>simple
+</span></span><span class="line"><span class="cl"><span class="nv">User</span><span class="o">=</span>root
+</span></span><span class="line"><span class="cl"><span class="nv">WorkingDirectory</span><span class="o">=</span>/usr/local/src/webhook
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/local/src/webhook/webhook -hooks ./my-scripts/hooks.json -verbose
+</span></span><span class="line"><span class="cl"><span class="nv">Restart</span><span class="o">=</span>always
+</span></span><span class="line"><span class="cl"><span class="nv">RestartSec</span><span class="o">=</span>5s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</span></span></code></pre></div><p>&#x32;&#xfe0f;&#x20e3; 启动服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 重新加载systemd</span>
+</span></span><span class="line"><span class="cl">systemctl daemon-reload
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动服务</span>
+</span></span><span class="line"><span class="cl">systemctl start webhook
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置开机自启动</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> webhook
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看服务状态</span>
+</span></span><span class="line"><span class="cl">systemctl status webhook
+</span></span></code></pre></div><p>&#x1f389; Congratulations! 我们已经实现基本的自动化部署了，你可以尽情的在此基础上进行扩展，例如​完善请求校验处理、按需求撰写你的执行脚本等。</p>
+
         
         <hr><p>本文2025-07-23首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-07-23</p>]]>
       </description>
@@ -57,6 +178,121 @@
         <![CDATA[<h1>PicGo实现Typora插入图片上传服务</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
           <p>现在已经有非常多的快速搭建<strong>博客站</strong>的工具，例如<code>JeckII、Hexo、Hugo</code>等，它们都具有非常优秀的使用体验，并且可以通过<code>GitHub</code>、<code>CloudFlare</code>等工具进行免费部署。利用它们成功搭建出自己的博客站后，往往使用<code>Markdown</code>进行博客内容撰写。在撰写过程中，我们会发现处理图片时会面临一些窘境：</p>
+<ul>
+<li>需要将图片放到特定资源文件夹（进行上传），操作不方便</li>
+<li>图片过多后占用空间</li>
+<li>图片太大时加载速度慢等</li>
+</ul>
+<p>我们可以采用将图片资源存放到图床的方案解决图片存储、路径问题。此外，在写作过程中通过安装<code>PicGo工具+压缩等插件</code>简化撰写过程，接下来跟我一起让写博客变得更加优雅吧！</p>
+<h2 id="1-安装">
+<a class="header-anchor" href="#1-%e5%ae%89%e8%a3%85"></a>
+1. 安装
+</h2><p><strong>PicGo: 一个用于快速上传图片并获取图片 URL 链接的工具</strong>，官方文档：<a href="https://picgo.github.io/PicGo-Doc/">PicGo</a>有详细的使用教程。</p>
+<ol>
+<li>下载：<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo-release</a>，<code>PicGo</code>提供众多<code>beta</code>版本，若希望体验新功能可安装最新<code>beta</code>版本。推荐安装正式版本。下载对应系统安装包进行安装，这里以<code>windows</code>系统为例，下载<code>2.3.1</code>版本安装程序：</li>
+</ol>
+<p><img src="https://qiniu.anburger.site/post/image-20250722151412072.png" alt="image-20250722151412072"></p>
+<ol start="2">
+<li>运行安装程序进行安装，安装成功后开始使用<code>PicGo</code>：</li>
+</ol>
+<p><img src="https://qiniu.anburger.site/post/image-20250722151741990.png" alt="image-20250722151741990"></p>
+<h2 id="2-配置图床">
+<a class="header-anchor" href="#2-%e9%85%8d%e7%bd%ae%e5%9b%be%e5%ba%8a"></a>
+2. 配置图床
+</h2><p><code>PicGo</code> 本体支持如下图床：</p>
+<ul>
+<li><code>七牛图床</code> v1.0</li>
+<li><code>腾讯云 COS v4\v5 版本</code> v1.1 &amp; v1.5.0</li>
+<li><code>又拍云</code> v1.2.0</li>
+<li><code>GitHub</code> v1.5.0</li>
+<li><code>SM.MS V2</code> v2.3.0-beta.0</li>
+<li><code>阿里云 OSS</code> v1.6.0</li>
+<li><code>Imgur</code> v1.6.0</li>
+</ul>
+<p>本文使用<strong>七牛云</strong>对象存储。</p>
+<h3 id="21-七牛云对象存储申请">
+<a class="header-anchor" href="#21-%e4%b8%83%e7%89%9b%e4%ba%91%e5%af%b9%e8%b1%a1%e5%ad%98%e5%82%a8%e7%94%b3%e8%af%b7"></a>
+2.1 七牛云对象存储申请
+</h3><ol>
+<li>进入<a href="https://www.qiniu.com/">七牛云 | 一站式中立音视频云 + AI</a>，完成账号设置（注册、登录、认证等）。</li>
+<li>完成后进入控制台（入口在网页右上角），选择新建存储空间：</li>
+</ol>
+<p><img src="https://qiniu.anburger.site/post/image-20250722152658046.png" alt="image-20250722152658046"></p>
+<ol start="3">
+<li>在新建存储空间面板中填写信息：
+<ul>
+<li>存储空间名称：自定义</li>
+<li>存储区域：如果你拥有已备案的域名或者仅做测试使用，选择国内区域。如果你的域名无法备案，可选择海外区域（不需要备案，但访问可能需要梯子）</li>
+<li>访问控制：公开（更方便）</li>
+</ul>
+</li>
+</ol>
+<p>​    填写完成后点击确认。</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722153029092.png" alt="image-20250722153029092"></p>
+<ol start="4">
+<li>
+<p>绑定域名</p>
+<p>存储空间创建后，会分配一个测试域名，可以直接使用，但是会被回收，因此不推荐实际使用。</p>
+<p>如果没有域名，可以注册免费域名，详见：。</p>
+<p>拥有一个域名后，进入新建的存储空间进行域名管理：</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722170800583.png" alt="image-20250722170800583"></p>
+<p>因为CDN加速域名需要进行域名所有权认证，所以我这里选择<code>自定义源站域名</code>，点击绑定域名后，填写：</p>
+<p>从绑定的域名列表中，复制<code>CNAME</code></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722171225178.png" alt="image-20250722171225178"></p>
+<p>然后使用<code>CloudFlare</code>配置CNAME并开启DNS减速服务(&#x1f621;)，</p>
+</li>
+<li></li>
+</ol>
+<h3 id="22-配置picgo图床">
+<a class="header-anchor" href="#22-%e9%85%8d%e7%bd%aepicgo%e5%9b%be%e5%ba%8a"></a>
+2.2 配置PicGo图床
+</h3><p>进入<code>PicGo-&gt;图床设置-&gt;七牛云</code>，填写配置信息：</p>
+<ul>
+<li>
+<p><code>AccessKey</code>和<code>SecretKey</code>：进入<code>七牛云-&gt;个人中心-&gt;密匙管理</code>，开启密匙访问并将对应的<code>Key</code>填入</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250722164135467.png" alt="image-20250722164135467"></p>
+</li>
+<li>
+<p><code>Bucket</code>：存储空间名称（如2.1中创建的<code>anburgerblog</code>）</p>
+</li>
+<li>
+<p>访问网址</p>
+</li>
+<li>
+<p>存储区域</p>
+</li>
+<li>
+<p>存储路径</p>
+</li>
+</ul>
+<p><img src="https://qiniu.anburger.site/post/image-20250722153925421.png" alt="image-20250722153925421"></p>
+<p>设置完成后点击<strong>确定</strong>进行保存，同时可以点击<strong>设为默认图床</strong>将七牛云作为默认图床。</p>
+<p>在上传区进行测试。</p>
+<h2 id="3-配置typora">
+<a class="header-anchor" href="#3-%e9%85%8d%e7%bd%aetypora"></a>
+3. 配置Typora
+</h2><p>在Typora中，进入<code>文件-&gt;偏好设置</code>（<code>Windows</code>快捷键<code>Ctrl+逗号</code>），进入<code>图片</code>进行设置：</p>
+<ul>
+<li>插入图片时&hellip;：看个人需求设置，这里设置为无特殊操作。如果希望插入后直接上传到图床，选择<code>上传图片</code>。</li>
+<li>上传服务：选择<code>PicGo（app）</code>，然后将<code>PicGo路径</code>设置为你对应的安装路径。</li>
+</ul>
+<p><img src="https://qiniu.anburger.site/post/image-20250722154539727.png" alt="image-20250722154539727"></p>
+<p>现在就完成了所有配置，可以开始使用啦！</p>
+<p>示例：</p>
+<ol>
+<li>复制图像（截图、Ctrl+C）</li>
+<li>插入图像到对应的位置（Ctrl+V），此时，图片还是本地图片：</li>
+</ol>
+<p><img src="https://qiniu.anburger.site/post/image-20250722155616421.png" alt="image-20250722155616421"></p>
+<ol start="3">
+<li>接下来<code>右击图片-&gt;上传图片</code>：</li>
+</ol>
+<p><img src="https://qiniu.anburger.site/post/image-20250722155948431.png" alt="image-20250722155948431"></p>
+<ol start="4">
+<li>上传完成后会自动将图片替换为图床中的链接：</li>
+</ol>
+<p><img src="https://qiniu.anburger.site/post/image-20250722160209444.png" alt="image-20250722160209444"></p>
+
         
         <hr><p>本文2025-07-22首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-07-22</p>]]>
       </description>

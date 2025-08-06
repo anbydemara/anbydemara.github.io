@@ -24,6 +24,12 @@
     "updated": "2025-08-01 12:00:00"
   }, 
   {
+    "objectID": "cfc9c79db12554be0b4b31808b78c2854357ca12",
+    "permalink": "/post/excerpts-quotes/",
+    "title": "摘录","content": "\rReading\r《傲慢与偏见》\r我们都生性不爱交际，沉默寡言，不愿开口，除非我们预料说出话来可以语惊四座，像格言一样光彩夺目，流传千古。\n这就是旅伴相得。\n《龙族》\r同一条路，和某些人一起走，就长得离谱，和另外一些人走，就短得让人舍不得迈步子。\n这个世界真孤独，在水下80米，你孤独得像独自站在一个星球上，没人听得见你说话，你可以放声大喊，然而无人在意。\n比孤独更可悲的事情，就是根本不知道自己很孤独，或者发明很孤独，却把自己都骗得相信自己不孤独。\n喜欢一个人那么久，那个人就和自己的过去捆在一起了，要是后悔以前喜欢谁，不就是把自己对以前的时间都否定了吗？\n所谓无悔之爱应该是那样一种东西吧\u0026hellip;未必要完美无缺，未必要有好结果，但多年之后你在人海中忽然抬起头来，见远处她独立如礁石，你忽然惊悸忽然震动忽然潸然泪下，速度快到来不及恨或者悲伤。\n《月亮与六便士》\r卑鄙与伟大，恶毒与仁慈，仇恨与热爱，是可以保存于同一颗心灵里的。\n对这个问题的回答取决于你赋予生活什么样的含义，你对社会要尽什么样的义务，以及你对自己有什么样的要求。\n《白夜行》\r他们只是想保护自己的灵魂。结果，雪穗从不以真面目示人，亮司则至今仍在黑暗的通风管中徘徊。\n一天当中，有太阳升起的时候，也有下沉的时候。人生也一样，有白天和黑夜，只是不会像真正的太阳那样，有定时的日出和日落。看个人，有些人一辈子都活在太阳的照耀下，也有些人不得不一直活在漆黑的深夜里。人害怕的，就是本来一直存在的太阳落下不再升起，也就是非常害怕原本照在身上的光芒。\n我的天空里没有太阳，总是黑夜，但并不暗，因为有东西代替了太阳。虽然没有太阳那么明亮，但对我来说已经足够。凭借着这份光，我便能把黑夜当成白天。\n《重庆森林》\r不知道从什么时候开始，在每个东西上面都有一个日子，秋刀鱼会过期，肉酱也会过期，连保鲜纸都会过期。我开始怀疑，在这个世界上，还有什么东西是不会过期的？\n如果记忆也是一个罐头的话，我希望这罐罐头不会过期，如果一定要加一个日子的话，我希望它是一万年。\n","date": "2025-07-25 12:00:00",
+    "updated": "2025-07-25 12:00:00"
+  }, 
+  {
     "objectID": "67162b4878ac71fe5dfad5d3b584dffb40612716",
     "permalink": "/post/webhook-github/",
     "title": "Webhook实现Github自动推送到Linux自动部署","content": "\u0026amp;#x2600;\u0026amp;#xfe0f; 场景：Github中代码更新后自动推送到服务器并部署\n\u0026amp;#x1f527; 工具：Webhook​\n1. Github配置Webhook\r\u0026amp;#x1f4cd;例如我在anbydemara.github.io该仓库中存储了我的静态博客网站，我希望当我push到该仓库时，Github自动通知我的服务器并执行自定义指令。\n\u0026amp;#x31;\u0026amp;#xfe0f;\u0026amp;#x20e3; ​进入Github仓库，Settings-\u0026amp;gt;Webhooks-\u0026amp;gt;Add webhook\n\u0026amp;#x32;\u0026amp;#xfe0f;\u0026amp;#x20e3; 填写配置信息\nPayLoad URL：http://your_servier_ip:port/path/{id}，其中port:9000，path:hooks都是默认值，我们保存不变。修改修改为自己的ip地址，并且为该Payload自定义一个id\nContent type：选择application/json格式\nSecret：设置自己的Secret token用于验证，可以使用一个随机字符串\nwebhook触发条件：Just push event表示push代码到仓库时触发，可以自定义其他事件\n其他保持默认，最后Update webhook：\n2. 服务器创建hook\r\u0026amp;#x1f4cd;我们使用webhook工具：\nwebhook is a lightweight configurable tool written in Go, that allows you to easily create HTTP endpoints (hooks) on your server, which you can use to execute configured commands. You can also pass data from the HTTP request (such as headers, payload or query variables) to your commands. webhook also allows you to specify rules which have to be satisfied in order for the hook to be triggered.\n2.1 …","date": "2025-07-23 10:00:00",
