@@ -37,10 +37,10 @@
 </span></span><span class="line"><span class="cl">wsl --install
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 安装其他分发版</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 查看其他分发版</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看其他分发版</span>
 </span></span><span class="line"><span class="cl">wsl --list --online
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 安装指定分发版</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 安装指定分发版</span>
 </span></span><span class="line"><span class="cl">wsl --install -d Debian
 </span></span></code></pre></div><h2 id="备份卸载">
 <a class="header-anchor" href="#%e5%a4%87%e4%bb%bd%e5%8d%b8%e8%bd%bd"></a>
@@ -51,6 +51,16 @@
 </span></span><span class="line"><span class="cl">wsl --unregister Debian
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 从备份导入</span>
 </span></span><span class="line"><span class="cl">wsl --import Debian D:/wsl .<span class="se">\d</span>ebian.tar
+</span></span></code></pre></div><h2 id="docker安装">
+<a class="header-anchor" href="#docker%e5%ae%89%e8%a3%85"></a>
+Docker安装
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 下载并执行Docker官方安装脚本</span>
+</span></span><span class="line"><span class="cl">curl -fsSL https://get.docker.com -o get-docker.sh
+</span></span><span class="line"><span class="cl">sudo sh get-docker.sh    <span class="c1"># 执行后会推荐下载Docker Desktop版，需等待20s</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动Docker服务</span>
+</span></span><span class="line"><span class="cl">sudo systemctl start docker
+</span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> docker
 </span></span></code></pre></div>
         
         <hr><p>本文2025-08-03首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-03</p>]]>
@@ -786,7 +796,6 @@ Reading
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>nginx
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 复制初始化后的nginx.conf、default.conf</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 必要时指定network</span>
 </span></span></code></pre></div><hr>
 <p>mysql</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d <span class="se">\
@@ -796,7 +805,6 @@ Reading
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /root/mysql/data:/var/lib/mysql <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /root/mysql/conf:/etc/mysql/conf.d <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>--network apps-net<span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>mysql
 </span></span></code></pre></div><hr>
 <p>redis</p>
@@ -805,9 +813,7 @@ Reading
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 6379:6379 <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /usr/local/src/docker/redis/data:/data <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /usr/local/src/docker/redis/conf/redis.conf:/etc/redis/redis.conf <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>--network apps-net <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>redis-server /etc/redis/redis.conf
-</span></span><span class="line"><span class="cl">redis 
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>redis redis-server /etc/redis/redis.conf
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 配置文件/etc/redis/redis.conf</span>
 </span></span></code></pre></div>
