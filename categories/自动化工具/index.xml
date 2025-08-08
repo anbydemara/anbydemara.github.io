@@ -47,7 +47,6 @@
     </div>
   </div>
 </div>
-
 <p>然而，在我实际使用中感觉<code>PicGO</code>稍微‘臃肿’，设置有时会卡死。</p>
 <p>Typora支持图片上传服务使用自定义命令，简单描述即<strong>上传图片时，Typora会自动运行设置的自定义命令，并将图片路径作为参数传递</strong>。因此，我们可以使用电脑中存在的工具进行自定义该服务，例如<code>Python、GO、Nodejs</code>等。</p>
 <h2 id="1-图片上传服务python">
@@ -110,7 +109,14 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 使用Pillow提供的功能进行压缩</span>
 </span></span><span class="line"><span class="cl">pip install Pillow
 </span></span></code></pre></div><p>压缩：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">compress_image</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
+<pre class="mermaid">
+  flowchart TD
+	A[原图] -->|tempfile| B(临时图片)
+	B --> C{格式}
+	C -->|JPEG,JPG| D[有损压缩]
+	C -->|PNG| E[无损压缩]
+	C -->|Ohter| F[不压缩]
+</pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">compress_image</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;压缩图片，保持原格式，并返回临时文件路径&#34;&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>

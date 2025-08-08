@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  JS犀牛书笔记 | Anburger
+  JS笔记 | Anburger
 </title>
 <meta
   name="description"
@@ -37,7 +37,7 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="JS犀牛书笔记 | Anburger" />
+  <meta property="og:title" content="JS笔记 | Anburger" />
   <meta
     property="og:description"
     content="安比在吃汉堡..."
@@ -53,7 +53,7 @@
   />
   <meta property="article:author" content="Anburger" />
   <meta property="article:published_time" content="2025-08-07T19:00:00&#43;08:00" />
-  <meta property="article:modified_time" content="2025-08-07T19:00:00&#43;08:00" /><meta name="twitter:card" content="summary" />
+  <meta property="article:modified_time" content="2025-08-08T19:00:00&#43;08:00" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="https://qiniu.anburger.site/cover/Note.webp" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.ccf26489d62543d1985feb38b8685532c4312faa550e2e2a3ca8494025fc7db6.css" />
 <link
@@ -136,9 +136,9 @@
   </nav>
   <nav id="sub-nav"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a></nav></div>
 <header id="header"><picture></picture>
-    <img crossorigin="anonymous" fetchpriority="high" src="https://qiniu.anburger.site/cover/Note.webp" alt="JS犀牛书笔记"><div id="header-outer">
+    <img crossorigin="anonymous" fetchpriority="high" src="https://qiniu.anburger.site/cover/Note.webp" alt="JS笔记"><div id="header-outer">
     <div id="header-title"><a href="/" id="logo">
-            <h1 data-aos="slide-up">JS犀牛书笔记</h1>
+            <h1 data-aos="slide-up">JS笔记</h1>
           </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -152,10 +152,10 @@
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#x-异步javascript">X 异步Javascript</a>
+    <li><a href="#1-异步javascript">1 异步Javascript</a>
       <ul>
-        <li><a href="#x1-基于回调的异步">X.1 基于回调的异步</a></li>
-        <li><a href="#x2-promise">X.2 Promise</a></li>
+        <li><a href="#11-基于回调的异步">1.1 基于回调的异步</a></li>
+        <li><a href="#12-promise">1.2 Promise</a></li>
       </ul>
     </li>
   </ul>
@@ -279,7 +279,7 @@
       >2025-08-07</time
     >
     <time style="display: none;" id="post-update-time"
-      >2025-08-07</time
+      >2025-08-08</time
     >
   </span>
 </div>
@@ -298,12 +298,12 @@
     <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="javascript学习笔记">
 <a class="header-anchor" href="#javascript%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0"></a>
 Javascript学习笔记
-</h1><h2 id="x-异步javascript">
-<a class="header-anchor" href="#x-%e5%bc%82%e6%ad%a5javascript"></a>
-X 异步Javascript
-</h2><h3 id="x1-基于回调的异步">
-<a class="header-anchor" href="#x1-%e5%9f%ba%e4%ba%8e%e5%9b%9e%e8%b0%83%e7%9a%84%e5%bc%82%e6%ad%a5"></a>
-X.1 基于回调的异步
+</h1><h2 id="1-异步javascript">
+<a class="header-anchor" href="#1-%e5%bc%82%e6%ad%a5javascript"></a>
+1 异步Javascript
+</h2><h3 id="11-基于回调的异步">
+<a class="header-anchor" href="#11-%e5%9f%ba%e4%ba%8e%e5%9b%9e%e8%b0%83%e7%9a%84%e5%bc%82%e6%ad%a5"></a>
+1.1 基于回调的异步
 </h3><blockquote>
 <p>最基础的异步方式。</p></blockquote>
 <ul>
@@ -329,25 +329,47 @@ X.1 基于回调的异步
 </span></span><span class="line"><span class="cl"><span class="nx">blockElement</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;clike&#39;</span><span class="p">,</span> <span class="nx">yourCallBack</span><span class="p">());</span>
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="x2-promise">
-<a class="header-anchor" href="#x2-promise"></a>
-X.2 Promise
+<h3 id="12-promise">
+<a class="header-anchor" href="#12-promise"></a>
+1.2 Promise
 </h3><blockquote>
 <p>一种为简化异步编程而设计的核心语言特性。（可以理解为Promise是一种简化的处理回调的方式。为什么需要简化：例如，普通回调方式如果出现多重嵌套回调）。</p></blockquote>
-<p>Promise是一个<strong>表示异步操作结果的对象</strong>。Promise表示一次异步计算的未来结果。</p>
-<p>Promise标准化了<strong>异步错误处理</strong>。</p>
-<h4 id="x21-promise基本使用">
-<a class="header-anchor" href="#x21-promise%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8"></a>
-X.2.1 Promise基本使用
-</h4><h5 id="创建promise">
-<a class="header-anchor" href="#%e5%88%9b%e5%bb%bapromise"></a>
-创建Promise
+<blockquote>
+<p>Promise是一个<strong>表示异步操作结果（完成/失败）的对象</strong>。Promise表示一次异步计算的未来结果。</p></blockquote>
+<blockquote>
+<p>Promise标准化了<strong>异步错误处理</strong>。</p></blockquote>
+<h4 id="121-promise基本使用">
+<a class="header-anchor" href="#121-promise%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8"></a>
+1.2.1 Promise基本使用
+</h4><p>Promise具有三种状态：</p>
+<p>&#x31;&#xfe0f;&#x20e3; pending</p>
+<p>&#x32;&#xfe0f;&#x20e3; fulfilled</p>
+<p>&#x33;&#xfe0f;&#x20e3; rejected</p>
+<pre class="mermaid">
+  flowchart TD
+	A(pending) -->|resolve| B(fulfiled)
+	A -->|reject| C(rejected)
+</pre><h5 id="1-创建promise">
+<a class="header-anchor" href="#1-%e5%88%9b%e5%bb%bapromise"></a>
+1 创建Promise
 </h5><p><img src="https://qiniu.anburger.site/post/image-20250807224231555.png" alt="image-20250807224231555"></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250807234638864.png" alt="image-20250807234638864"></p>
-</div>
-    <footer class="article-footer"><div class="share-wrapper"><a href="https://connect.qq.com/widget/shareqq/index.html?url=https://anburger.site/post/note-of-js-guide/&amp;title=JS%e7%8a%80%e7%89%9b%e4%b9%a6%e7%ac%94%e8%ae%b0&amp;desc=%0dJavascript%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%0dX%20%e5%bc%82%e6%ad%a5Javascript%0dX.1%20%e5%9f%ba%e4%ba%8e%e5%9b%9e%e8%b0%83%e7%9a%84%e5%bc%82%e6%ad%a5%0d%e6%9c%80%e5%9f%ba%e7%a1%80%e7%9a%84%e5%bc%82%e6%ad%a5%e6%96%b9%e5%bc%8f%e3%80%82%0a%e5%ae%9a%e6%97%b6%e5%99%a8%0a%e4%b8%80%e5%ae%9a%e6%97%b6%e9%97%b4%e5%90%8e%e6%89%a7%e8%a1%8c%e6%9f%90%e4%b8%aa%e5%87%bd%e6%95%b0%0a/**%20*%20param%201:%20function%20*%20param%202:%20delayed%20time%20%28ms%29%20*/%20setTimeout%28%28%29%20=&amp;gt;%20console.log%28&amp;#39;%e5%ae%9a%e6%97%b6%e8%b0%83%e7%94%a8&amp;#39;%29,%205000%29;%20/**%20*%20setTimeout%e5%8f%aa%e8%b0%83%e7%94%a8%e4%b8%80%e6%ac%a1%e5%9b%9e%e8%b0%83%e5%87%bd%e6%95%b0%20*%20%e5%a6%82%e6%9e%9c%e8%a6%81%e9%87%8d%e5%a4%8d%e6%89%a7%e8%a1%8c%e5%ae%9a%e6%97%b6%e5%99%a8%ef%bc%8c%e9%87%87%e7%94%a8setInterval%20*/%20let%20customIntervalId%20=%20setInterval%28%28%29%20=&amp;gt;%20console.log%28&amp;#39;%e5%ae%9a%e6%97%b6%20%e2%80%a6&amp;source=https://anburger.site/" target="_blank" rel="noopener noreferrer" title="JS犀牛书笔记">
+<p>构造函数<code>Promise()</code>接收<strong>一个函数作为唯一参数</strong>，使用该函数对创建的Promise进行控制，该函数接收两个参数（通常名为resolve和reject，均为函数）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 构造函数调用传入的函数，并为resolve和reject传入对应的函数值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">myPromise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 异步执行逻辑...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="cm">/*操作成功*/</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 将 Promise 状态改为 fulfilled
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">resolve</span><span class="p">(</span><span class="cm">/*成功的返回结果*/</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 将 Promise 状态改为 rejectes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">reject</span><span class="p">(</span><span class="cm">/*失败的返回结果*/</span><span class="p">);</span>                      
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div></div>
+    <footer class="article-footer"><div class="share-wrapper"><a href="https://connect.qq.com/widget/shareqq/index.html?url=https://anburger.site/post/note-of-js-guide/&amp;title=JS%e7%ac%94%e8%ae%b0&amp;desc=%0dJavascript%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%0d1%20%e5%bc%82%e6%ad%a5Javascript%0d1.1%20%e5%9f%ba%e4%ba%8e%e5%9b%9e%e8%b0%83%e7%9a%84%e5%bc%82%e6%ad%a5%0d%e6%9c%80%e5%9f%ba%e7%a1%80%e7%9a%84%e5%bc%82%e6%ad%a5%e6%96%b9%e5%bc%8f%e3%80%82%0a%e5%ae%9a%e6%97%b6%e5%99%a8%0a%e4%b8%80%e5%ae%9a%e6%97%b6%e9%97%b4%e5%90%8e%e6%89%a7%e8%a1%8c%e6%9f%90%e4%b8%aa%e5%87%bd%e6%95%b0%0a/**%20*%20param%201:%20function%20*%20param%202:%20delayed%20time%20%28ms%29%20*/%20setTimeout%28%28%29%20=&amp;gt;%20console.log%28&amp;#39;%e5%ae%9a%e6%97%b6%e8%b0%83%e7%94%a8&amp;#39;%29,%205000%29;%20/**%20*%20setTimeout%e5%8f%aa%e8%b0%83%e7%94%a8%e4%b8%80%e6%ac%a1%e5%9b%9e%e8%b0%83%e5%87%bd%e6%95%b0%20*%20%e5%a6%82%e6%9e%9c%e8%a6%81%e9%87%8d%e5%a4%8d%e6%89%a7%e8%a1%8c%e5%ae%9a%e6%97%b6%e5%99%a8%ef%bc%8c%e9%87%87%e7%94%a8setInterval%20*/%20let%20customIntervalId%20=%20setInterval%28%28%29%20=&amp;gt;%20console.log%28&amp;#39;%e5%ae%9a%e6%97%b6%20%e2%80%a6&amp;source=https://anburger.site/" target="_blank" rel="noopener noreferrer" title="JS笔记">
       <div class="share-icon icon icon-qq"></div>
-    </a><a href="javascript:;"  title="JS犀牛书笔记">
+    </a><a href="javascript:;"  title="JS笔记">
       <div class="share-icon icon icon-weixin"><div id="share-weixin">
             <div class="share-weixin-dom">
               <div class="share-weixin-content">
@@ -439,10 +461,10 @@ X.2.1 Promise基本使用
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;8.7k</span
+          >&nbsp;9.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:23</span>
+        <span class="icon-coffee">&nbsp;00:24</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -469,10 +491,10 @@ X.2.1 Promise基本使用
   <div class="sidebar-toc-wrapper toc-div-class">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#x-异步javascript">X 异步Javascript</a>
+    <li><a href="#1-异步javascript">1 异步Javascript</a>
       <ul>
-        <li><a href="#x1-基于回调的异步">X.1 基于回调的异步</a></li>
-        <li><a href="#x2-promise">X.2 Promise</a></li>
+        <li><a href="#11-基于回调的异步">1.1 基于回调的异步</a></li>
+        <li><a href="#12-promise">1.2 Promise</a></li>
       </ul>
     </li>
   </ul>
@@ -644,11 +666,89 @@ X.2.1 Promise基本使用
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "Anburger",
-          title: "JS犀牛书笔记",
+          title: "JS笔记",
           url: "https:\/\/anburger.site\/post\/note-of-js-guide\/",
-          description: "\rJavascript学习笔记\rX 异步Javascript\rX.1 基于回调的异步\r最基础的异步方式。\n定时器\n一定时间后执行某个函数\n\/** * param 1: function * param 2: delayed time (ms) *\/ setTimeout(() =\u0026gt; console.log(\u0026#39;定时调用\u0026#39;), 5000); \/** * setTimeout只调用一次回调函数 * 如果要重复执行定时器，采用setInterval *\/ let customIntervalId = setInterval(() =\u0026gt; console.log(\u0026#39;定时 …",
+          description: "\rJavascript学习笔记\r1 异步Javascript\r1.1 基于回调的异步\r最基础的异步方式。\n定时器\n一定时间后执行某个函数\n\/** * param 1: function * param 2: delayed time (ms) *\/ setTimeout(() =\u0026gt; console.log(\u0026#39;定时调用\u0026#39;), 5000); \/** * setTimeout只调用一次回调函数 * 如果要重复执行定时器，采用setInterval *\/ let customIntervalId = setInterval(() =\u0026gt; console.log(\u0026#39;定时 …",
           cover: "https:\/\/qiniu.anburger.site\/cover\/Note.webp",
         };
+      </script><script
+    src="https://npm.webcache.cn/mermaid@11.6.0/dist/mermaid.min.js"
+    data-pjaxintegrity="sha384-zkWMJO4sgpPUzyuOgDx8HB/K55glbAwajEpk1Go2NWRuPkPA/wIhoEJTuSkmOYrV" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/dompurify@3.2.4/dist/purify.min.js"
+    data-pjaxintegrity="sha384-eEu5CTj3qGvu9PdJuS&#43;YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous"></script><script data-pjax>
+        if (window.mermaid) {
+          
+          const elementCode = ".mermaid";
+          const saveOriginalData = () => {
+            return new Promise((resolve, reject) => {
+              try {
+                var els = _$$(elementCode),
+                  count = els.length;
+                els.forEach((element) => {
+                  if (element.getAttribute("data-original-code") == null) {
+                    element.setAttribute(
+                      "data-original-code",
+                      element.innerHTML,
+                    );
+                  }
+                  count--;
+                  if (count == 0) {
+                    resolve();
+                  }
+                });
+              } catch (error) {
+                reject(error);
+              }
+            });
+          };
+          const resetProcessed = () => {
+            return new Promise((resolve, reject) => {
+              try {
+                var els = _$$(elementCode),
+                  count = els.length;
+                els.forEach((element) => {
+                  if (element.getAttribute("data-original-code") != null) {
+                    element.removeAttribute("data-processed");
+                    element.innerHTML = DOMPurify.sanitize(element.getAttribute("data-original-code"));
+                  }
+                  count--;
+                  if (count == 0) {
+                    resolve();
+                  }
+                });
+              } catch (error) {
+                reject(error);
+              }
+            });
+          };
+          const loadMermaid = (theme) => {
+            window.mermaid.initialize({ theme });
+            window.mermaid.init({ theme }, _$$(elementCode));
+          };
+          document.body.addEventListener("dark-theme-set", () => {
+            saveOriginalData()
+              .then(resetProcessed())
+              .then(loadMermaid("dark"))
+              .catch(console.error);
+          });
+          document.body.addEventListener("light-theme-set", () => {
+            saveOriginalData()
+              .then(resetProcessed())
+              .then(loadMermaid("default"))
+              .catch(console.error);
+          });
+          if (localStorage.getItem("dark_mode") == "true") {
+            saveOriginalData()
+              .then(resetProcessed())
+              .then(loadMermaid("dark"))
+              .catch(console.error);
+          } else {
+            saveOriginalData()
+              .then(resetProcessed())
+              .then(loadMermaid("default"))
+              .catch(console.error);
+          }
+        }
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
           if (_$$('.article-entry a.article-gallery-item').length > 0) {
             new PhotoSwipeLightbox({

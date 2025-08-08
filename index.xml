@@ -12,12 +12,103 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Fri, 08 Aug 2025 13:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Aug 2025 19:00:00 +0800</lastBuildDate>
     
     
     <atom:link href="https://anburger.site/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>JS笔记</title>
+      <link>https://anburger.site/post/note-of-js-guide/</link>
+      <pubDate>Thu, 07 Aug 2025 19:00:00 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://anburger.site/post/note-of-js-guide/</guid>
+      <description>
+        <![CDATA[<h1>JS笔记</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
+        
+          <h1 id="javascript学习笔记">
+<a class="header-anchor" href="#javascript%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0"></a>
+Javascript学习笔记
+</h1><h2 id="1-异步javascript">
+<a class="header-anchor" href="#1-%e5%bc%82%e6%ad%a5javascript"></a>
+1 异步Javascript
+</h2><h3 id="11-基于回调的异步">
+<a class="header-anchor" href="#11-%e5%9f%ba%e4%ba%8e%e5%9b%9e%e8%b0%83%e7%9a%84%e5%bc%82%e6%ad%a5"></a>
+1.1 基于回调的异步
+</h3><blockquote>
+<p>最基础的异步方式。</p></blockquote>
+<ul>
+<li>
+<p>定时器</p>
+<p>一定时间后执行某个函数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * param 1: function
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * param 2: delayed time (ms)
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;定时调用&#39;</span><span class="p">),</span> <span class="mi">5000</span><span class="p">);</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* setTimeout只调用一次回调函数
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 如果要重复执行定时器，采用setInterval
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">customIntervalId</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;定时调用&#39;</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>  <span class="c1">// 每个1s调用一次
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">customIntervalId</span><span class="p">),</span> <span class="mi">5000</span><span class="p">);</span>  <span class="c1">// 5s后清除该setInterval
+</span></span></span></code></pre></div></li>
+<li>
+<p>事件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// eg: click事件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">blockElement</span> <span class="o">=</span> <span class="nx">xxx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">blockElement</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;clike&#39;</span><span class="p">,</span> <span class="nx">yourCallBack</span><span class="p">());</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="12-promise">
+<a class="header-anchor" href="#12-promise"></a>
+1.2 Promise
+</h3><blockquote>
+<p>一种为简化异步编程而设计的核心语言特性。（可以理解为Promise是一种简化的处理回调的方式。为什么需要简化：例如，普通回调方式如果出现多重嵌套回调）。</p></blockquote>
+<blockquote>
+<p>Promise是一个<strong>表示异步操作结果（完成/失败）的对象</strong>。Promise表示一次异步计算的未来结果。</p></blockquote>
+<blockquote>
+<p>Promise标准化了<strong>异步错误处理</strong>。</p></blockquote>
+<h4 id="121-promise基本使用">
+<a class="header-anchor" href="#121-promise%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8"></a>
+1.2.1 Promise基本使用
+</h4><p>Promise具有三种状态：</p>
+<p>&#x31;&#xfe0f;&#x20e3; pending</p>
+<p>&#x32;&#xfe0f;&#x20e3; fulfilled</p>
+<p>&#x33;&#xfe0f;&#x20e3; rejected</p>
+<pre class="mermaid">
+  flowchart TD
+	A(pending) -->|resolve| B(fulfiled)
+	A -->|reject| C(rejected)
+</pre><h5 id="1-创建promise">
+<a class="header-anchor" href="#1-%e5%88%9b%e5%bb%bapromise"></a>
+1 创建Promise
+</h5><p><img src="https://qiniu.anburger.site/post/image-20250807224231555.png" alt="image-20250807224231555"></p>
+<p>构造函数<code>Promise()</code>接收<strong>一个函数作为唯一参数</strong>，使用该函数对创建的Promise进行控制，该函数接收两个参数（通常名为resolve和reject，均为函数）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 构造函数调用传入的函数，并为resolve和reject传入对应的函数值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">myPromise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 异步执行逻辑...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="cm">/*操作成功*/</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 将 Promise 状态改为 fulfilled
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">resolve</span><span class="p">(</span><span class="cm">/*成功的返回结果*/</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 将 Promise 状态改为 rejectes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">reject</span><span class="p">(</span><span class="cm">/*失败的返回结果*/</span><span class="p">);</span>                      
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div>
+        
+        <hr><p>本文2025-08-07首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-08</p>]]>
+      </description>
+      
+        <category>笔记</category><category>Javascript</category>
+      
+    </item>
     
     
 
@@ -47,7 +138,6 @@
     </div>
   </div>
 </div>
-
 <p>然而，在我实际使用中感觉<code>PicGO</code>稍微‘臃肿’，设置有时会卡死。</p>
 <p>Typora支持图片上传服务使用自定义命令，简单描述即<strong>上传图片时，Typora会自动运行设置的自定义命令，并将图片路径作为参数传递</strong>。因此，我们可以使用电脑中存在的工具进行自定义该服务，例如<code>Python、GO、Nodejs</code>等。</p>
 <h2 id="1-图片上传服务python">
@@ -110,7 +200,14 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 使用Pillow提供的功能进行压缩</span>
 </span></span><span class="line"><span class="cl">pip install Pillow
 </span></span></code></pre></div><p>压缩：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">compress_image</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
+<pre class="mermaid">
+  flowchart TD
+	A[原图] -->|tempfile| B(临时图片)
+	B --> C{格式}
+	C -->|JPEG,JPG| D[有损压缩]
+	C -->|PNG| E[无损压缩]
+	C -->|Ohter| F[不压缩]
+</pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">compress_image</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;压缩图片，保持原格式，并返回临时文件路径&#34;&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
@@ -257,75 +354,6 @@ X.1 SQLite
       </description>
       
         <category>笔记</category><category>Nodejs</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>JS犀牛书笔记</title>
-      <link>https://anburger.site/post/note-of-js-guide/</link>
-      <pubDate>Thu, 07 Aug 2025 19:00:00 &#43;0800</pubDate>
-      <author>yang_zc@aliyun.com (Anburger)</author>
-      <guid>https://anburger.site/post/note-of-js-guide/</guid>
-      <description>
-        <![CDATA[<h1>JS犀牛书笔记</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
-        
-          <h1 id="javascript学习笔记">
-<a class="header-anchor" href="#javascript%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0"></a>
-Javascript学习笔记
-</h1><h2 id="x-异步javascript">
-<a class="header-anchor" href="#x-%e5%bc%82%e6%ad%a5javascript"></a>
-X 异步Javascript
-</h2><h3 id="x1-基于回调的异步">
-<a class="header-anchor" href="#x1-%e5%9f%ba%e4%ba%8e%e5%9b%9e%e8%b0%83%e7%9a%84%e5%bc%82%e6%ad%a5"></a>
-X.1 基于回调的异步
-</h3><blockquote>
-<p>最基础的异步方式。</p></blockquote>
-<ul>
-<li>
-<p>定时器</p>
-<p>一定时间后执行某个函数</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * param 1: function
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * param 2: delayed time (ms)
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;定时调用&#39;</span><span class="p">),</span> <span class="mi">5000</span><span class="p">);</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm">* setTimeout只调用一次回调函数
-</span></span></span><span class="line"><span class="cl"><span class="cm">* 如果要重复执行定时器，采用setInterval
-</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
-</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">customIntervalId</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;定时调用&#39;</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>  <span class="c1">// 每个1s调用一次
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">customIntervalId</span><span class="p">),</span> <span class="mi">5000</span><span class="p">);</span>  <span class="c1">// 5s后清除该setInterval
-</span></span></span></code></pre></div></li>
-<li>
-<p>事件</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// eg: click事件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">blockElement</span> <span class="o">=</span> <span class="nx">xxx</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">blockElement</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;clike&#39;</span><span class="p">,</span> <span class="nx">yourCallBack</span><span class="p">());</span>
-</span></span></code></pre></div></li>
-</ul>
-<h3 id="x2-promise">
-<a class="header-anchor" href="#x2-promise"></a>
-X.2 Promise
-</h3><blockquote>
-<p>一种为简化异步编程而设计的核心语言特性。（可以理解为Promise是一种简化的处理回调的方式。为什么需要简化：例如，普通回调方式如果出现多重嵌套回调）。</p></blockquote>
-<p>Promise是一个<strong>表示异步操作结果的对象</strong>。Promise表示一次异步计算的未来结果。</p>
-<p>Promise标准化了<strong>异步错误处理</strong>。</p>
-<h4 id="x21-promise基本使用">
-<a class="header-anchor" href="#x21-promise%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8"></a>
-X.2.1 Promise基本使用
-</h4><h5 id="创建promise">
-<a class="header-anchor" href="#%e5%88%9b%e5%bb%bapromise"></a>
-创建Promise
-</h5><p><img src="https://qiniu.anburger.site/post/image-20250807224231555.png" alt="image-20250807224231555"></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250807234638864.png" alt="image-20250807234638864"></p>
-
-        
-        <hr><p>本文2025-08-07首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-07</p>]]>
-      </description>
-      
-        <category>笔记</category><category>Javascript</category>
       
     </item>
     

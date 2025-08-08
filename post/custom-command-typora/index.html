@@ -303,7 +303,6 @@
     </div>
   </div>
 </div>
-
 <p>然而，在我实际使用中感觉<code>PicGO</code>稍微‘臃肿’，设置有时会卡死。</p>
 <p>Typora支持图片上传服务使用自定义命令，简单描述即<strong>上传图片时，Typora会自动运行设置的自定义命令，并将图片路径作为参数传递</strong>。因此，我们可以使用电脑中存在的工具进行自定义该服务，例如<code>Python、GO、Nodejs</code>等。</p>
 <h2 id="1-图片上传服务python">
@@ -366,7 +365,14 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 使用Pillow提供的功能进行压缩</span>
 </span></span><span class="line"><span class="cl">pip install Pillow
 </span></span></code></pre></div><p>压缩：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">compress_image</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
+<pre class="mermaid">
+  flowchart TD
+	A[原图] -->|tempfile| B(临时图片)
+	B --> C{格式}
+	C -->|JPEG,JPG| D[有损压缩]
+	C -->|PNG| E[无损压缩]
+	C -->|Ohter| F[不压缩]
+</pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">compress_image</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;压缩图片，保持原格式，并返回临时文件路径&#34;&#34;&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
@@ -491,11 +497,11 @@
   ><div class="article-nav-link-wrap article-nav-link-left"><img
             data-src="https://qiniu.anburger.site/cover/Note.webp"
             data-sizes="auto"
-            alt="JS犀牛书笔记"
+            alt="JS笔记"
             class="lazyload"
           /><a href="/post/note-of-js-guide/"></a>
         <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">JS犀牛书笔记</h3>
+        <h3 class="article-nav-title">JS笔记</h3>
       </div></nav></article><section id="comments" data-aos="fade-up">
 <div class="comment-header"><h2 class="comment-title">说些什么吧！</h2>
   <div class="comment-selector">
@@ -528,10 +534,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;8.7k</span
+          >&nbsp;9.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:23</span>
+        <span class="icon-coffee">&nbsp;00:24</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -734,6 +740,84 @@
           description: "Typora插入图片时可以将其自动上传到图床中，在之前的文章中介绍了使用PicGO作为上传服务。\nPicGo实现Typora插入图片上传服务\r现在已经有非常多的快速搭建博客站的工具，例如JeckII、Hexo、Hugo等，它们都具有非常优秀的使用体验，并且可以通过GitHub、CloudFlare等工具进行免费部署。利用它们成功搭建出自己的博客站后，往往使用Markdown进行博客内容撰写。在撰写过程中，我们会发现处理图片时会面临一些窘境： 然而，在我实际使用中感觉PicGO稍微‘臃肿’，设置有时会卡死。\n",
           cover: "https:\/\/qiniu.anburger.site\/cover\/Tech.webp",
         };
+      </script><script
+    src="https://npm.webcache.cn/mermaid@11.6.0/dist/mermaid.min.js"
+    data-pjaxintegrity="sha384-zkWMJO4sgpPUzyuOgDx8HB/K55glbAwajEpk1Go2NWRuPkPA/wIhoEJTuSkmOYrV" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/dompurify@3.2.4/dist/purify.min.js"
+    data-pjaxintegrity="sha384-eEu5CTj3qGvu9PdJuS&#43;YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu" crossorigin="anonymous"></script><script data-pjax>
+        if (window.mermaid) {
+          
+          const elementCode = ".mermaid";
+          const saveOriginalData = () => {
+            return new Promise((resolve, reject) => {
+              try {
+                var els = _$$(elementCode),
+                  count = els.length;
+                els.forEach((element) => {
+                  if (element.getAttribute("data-original-code") == null) {
+                    element.setAttribute(
+                      "data-original-code",
+                      element.innerHTML,
+                    );
+                  }
+                  count--;
+                  if (count == 0) {
+                    resolve();
+                  }
+                });
+              } catch (error) {
+                reject(error);
+              }
+            });
+          };
+          const resetProcessed = () => {
+            return new Promise((resolve, reject) => {
+              try {
+                var els = _$$(elementCode),
+                  count = els.length;
+                els.forEach((element) => {
+                  if (element.getAttribute("data-original-code") != null) {
+                    element.removeAttribute("data-processed");
+                    element.innerHTML = DOMPurify.sanitize(element.getAttribute("data-original-code"));
+                  }
+                  count--;
+                  if (count == 0) {
+                    resolve();
+                  }
+                });
+              } catch (error) {
+                reject(error);
+              }
+            });
+          };
+          const loadMermaid = (theme) => {
+            window.mermaid.initialize({ theme });
+            window.mermaid.init({ theme }, _$$(elementCode));
+          };
+          document.body.addEventListener("dark-theme-set", () => {
+            saveOriginalData()
+              .then(resetProcessed())
+              .then(loadMermaid("dark"))
+              .catch(console.error);
+          });
+          document.body.addEventListener("light-theme-set", () => {
+            saveOriginalData()
+              .then(resetProcessed())
+              .then(loadMermaid("default"))
+              .catch(console.error);
+          });
+          if (localStorage.getItem("dark_mode") == "true") {
+            saveOriginalData()
+              .then(resetProcessed())
+              .then(loadMermaid("dark"))
+              .catch(console.error);
+          } else {
+            saveOriginalData()
+              .then(resetProcessed())
+              .then(loadMermaid("default"))
+              .catch(console.error);
+          }
+        }
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
           if (_$$('.article-entry a.article-gallery-item').length > 0) {
             new PhotoSwipeLightbox({
