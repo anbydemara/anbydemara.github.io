@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nodejs on Anby Demara&#39;s Homepage</title>
+    <link>https://anburger.site/categories/nodejs/</link>
+    <description>Recent content from Anby Demara&#39;s Homepage</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>yang_zc@aliyun.com (Anburger)</managingEditor>
+    <webMaster>yang_zc@aliyun.com (Anburger)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Thu, 07 Aug 2025 19:00:00 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://anburger.site/categories/nodejs/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Nodejs笔记</title>
+      <link>https://anburger.site/post/note-of-nodejs/</link>
+      <pubDate>Thu, 07 Aug 2025 19:00:00 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://anburger.site/post/note-of-nodejs/</guid>
+      <description>
+        <![CDATA[<h1>Nodejs笔记</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
+        
+          <h1 id="nodejs学习笔记">
+<a class="header-anchor" href="#nodejs%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0"></a>
+Nodejs学习笔记
+</h1><h2 id="1-简介">
+<a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
+1 简介
+</h2><p>官方文档：</p>
+<div class="post-link-card-wrap">
+  <div class="post-link-card">
+    <a href="https://nodejs.org/docs/latest/api/" title="Nodejs官方文档" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap auto">
+        <div class="icon-globe"></div>
+      </div><div class="post-link-card-item-wrap">
+      <div class="post-link-card-title">Nodejs官方文档</div>
+      <div class="post-link-card-excerpt">
+        <span class="icon-link"></span>https://nodejs.org/docs/latest/api/
+      </div>
+    </div>
+  </div>
+</div>
+
+<blockquote>
+<p>Node.js is a JavaScript runtime built on the <a href="https://v8.dev/">V8 JavaScript engine</a>.</p></blockquote>
+<p>下载&amp;安装：</p>
+<div class="post-link-card-wrap">
+  <div class="post-link-card">
+    <a href="https://nodejs.org/en/download" title="Nodejs下载" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap auto">
+        <div class="icon-globe"></div>
+      </div><div class="post-link-card-item-wrap">
+      <div class="post-link-card-title">Nodejs下载</div>
+      <div class="post-link-card-excerpt">
+        <span class="icon-link"></span>https://nodejs.org/en/download
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="2-quick-start">
+<a class="header-anchor" href="#2-quick-start"></a>
+2 Quick Start
+</h2><p>&#x31;&#xfe0f;&#x20e3;新建空项目<code>first-node</code></p>
+<p>&#x32;&#xfe0f;&#x20e3;项目下新建文件<code>hello.js</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node:http&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">hostname</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">res</span><span class="p">.</span><span class="nx">statusCode</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;Hello, World!\n&#39;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span> <span class="nx">hostname</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Server running at http://</span><span class="si">${</span><span class="nx">hostname</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></div><p>&#x33;&#xfe0f;&#x20e3;运行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">node hello.js
+</span></span></code></pre></div><p>运行结果如下，浏览器访问该url可以得到返回结果<code>Hello, World!</code>：</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250807191737364.png" alt="image-20250807191737364"><img src="https://qiniu.anburger.site/post/image-20250807191905346.png" alt="image-20250807191905346"></p>
+<p>&#x1f389;Congratulations！</p>
+<h2 id="x-数据库操作">
+<a class="header-anchor" href="#x-%e6%95%b0%e6%8d%ae%e5%ba%93%e6%93%8d%e4%bd%9c"></a>
+X 数据库操作
+</h2><h3 id="x1-sqlite">
+<a class="header-anchor" href="#x1-sqlite"></a>
+X.1 SQLite
+</h3>
+        
+        <hr><p>本文2025-08-07首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-07</p>]]>
+      </description>
+      
+        <category>笔记</category><category>Nodejs</category>
+      
+    </item>
+    
+  </channel>
+</rss>

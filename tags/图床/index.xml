@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>图床 on Anby Demara&#39;s Homepage</title>
+    <link>https://anburger.site/tags/%E5%9B%BE%E5%BA%8A/</link>
+    <description>Recent content from Anby Demara&#39;s Homepage</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>yang_zc@aliyun.com (Anburger)</managingEditor>
+    <webMaster>yang_zc@aliyun.com (Anburger)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Fri, 08 Aug 2025 13:00:00 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://anburger.site/tags/%E5%9B%BE%E5%BA%8A/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Typora自定义图片上传服务</title>
+      <link>https://anburger.site/post/custom-command-typora/</link>
+      <pubDate>Fri, 08 Aug 2025 13:00:00 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://anburger.site/post/custom-command-typora/</guid>
+      <description>
+        <![CDATA[<h1>Typora自定义图片上传服务</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
+        
+          <p>Typora插入图片时可以将其自动上传到图床中，在之前的文章中介绍了使用<code>PicGO</code>作为上传服务。</p>
+<div class="post-link-card-wrap">
+  <div class="post-link-card">
+    <a href="/post/picgo-typora/" title="PicGo实现Typora插入图片上传服务"></a><div class="post-link-card-cover-wrap">
+        <img
+          src="https://qiniu.anburger.site/cover/Tech.webp"
+          class="no-lightbox"
+          title="PicGo实现Typora插入图片上传服务"
+          alt="PicGo实现Typora插入图片上传服务"
+        />
+      </div><div class="post-link-card-item-wrap">
+      <div class="post-link-card-title">PicGo实现Typora插入图片上传服务</div>
+      <div class="post-link-card-excerpt">现在已经有非常多的快速搭建博客站的工具，例如JeckII、Hexo、Hugo等，它们都具有非常优秀的使用体验，并且可以通过GitHub、CloudFlare等工具进行免费部署。利用它们成功搭建出自己的博客站后，往往使用Markdown进行博客内容撰写。在撰写过程中，我们会发现处理图片时会面临一些窘境：
+</div>
+    </div>
+  </div>
+</div>
+
+<p>然而，在我实际使用中感觉<code>PicGO</code>稍微‘臃肿’，设置有时会卡死。</p>
+<p>Typora支持图片上传服务使用自定义命令，简单描述即<strong>上传图片时，Typora会自动运行设置的自定义命令，并将图片路径作为参数传递</strong>。因此，我们可以使用电脑中存在的工具进行自定义该服务，例如<code>Python、GO、Nodejs</code>等。</p>
+<h2 id="1-图片上传服务python">
+<a class="header-anchor" href="#1-%e5%9b%be%e7%89%87%e4%b8%8a%e4%bc%a0%e6%9c%8d%e5%8a%a1python"></a>
+1 图片上传服务&ndash;Python
+</h2><p>从Typora命令执行逻辑分析，脚本的任务就是根据图片路径上传这些图片，然后将返回的图床 URL 输出到控制台，Typora 会自动用这些 URL 替换掉原来的本地路径。</p>
+<p>&#x31;&#xfe0f;&#x20e3; 配置文件</p>
+<p>写图床存在需要权限，我们将认证信息独立到配置文件中：<code>config.json</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;access_key&#34;</span><span class="p">:</span> <span class="s2">&#34;YOUR_ACCESS_KEY&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;secret_key&#34;</span><span class="p">:</span> <span class="s2">&#34;YOUR_SECRET_KEY&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;bucket_name&#34;</span><span class="p">:</span> <span class="s2">&#34;YOUR_BUKCET_NAME&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;domain&#34;</span><span class="p">:</span> <span class="s2">&#34;YOUR_DOMAIN&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;YOUR_PATH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;compress&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;quality&#34;</span><span class="p">:</span> <span class="mi">80</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>&#x32;&#xfe0f;&#x20e3; 读取配置文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_config</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;加载配置文件&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">config_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s1">&#39;config.json&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;错误：找不到配置文件 config.json&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;错误：配置文件 config.json 格式不正确&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></div><p>&#x33;&#xfe0f;&#x20e3; 编写上传逻辑</p>
+<p>上传到指定图床需要使用图床官方SDK，详细查看图床文档。以七牛<code>Python SDK</code>为例。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 安装七牛SDK</span>
+</span></span><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">qiniu</span>
+</span></span></code></pre></div><p>上传：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">upload_to_qiniu</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">bucket_name</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">file_to_upload</span><span class="p">,</span> <span class="n">original_filename</span><span class="p">,</span> <span class="n">remote_path</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;上传单个文件到七牛云&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 构建鉴权对象</span>
+</span></span><span class="line"><span class="cl">    <span class="n">q</span> <span class="o">=</span> <span class="n">Auth</span><span class="p">(</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 使用原始文件名构建在七牛云上保存的 key</span>
+</span></span><span class="line"><span class="cl">    <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">remote_path</span><span class="si">}{</span><span class="n">original_filename</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">if</span> <span class="n">remote_path</span> <span class="k">else</span> <span class="n">original_filename</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 生成上传 Token</span>
+</span></span><span class="line"><span class="cl">    <span class="n">token</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">upload_token</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="mi">3600</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 上传处理后（可能被压缩）的文件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ret</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">put_file</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">file_to_upload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">ret</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ret</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 上传成功，返回 URL</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 确保域名末尾没有 /，路径开头没有 /</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">domain</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 上传失败</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;上传失败: </span><span class="si">{</span><span class="n">info</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">None</span>
+</span></span></code></pre></div><p>&#x34;&#xfe0f;&#x20e3; 扩展功能</p>
+<p>在上传图片到图床前，我们可以对其进行压缩、添加水印等操作。这里以压缩功能为例。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 使用Pillow提供的功能进行压缩</span>
+</span></span><span class="line"><span class="cl">pip install Pillow
+</span></span></code></pre></div><p>压缩：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">compress_image</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;压缩图片，保持原格式，并返回临时文件路径&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">original_format</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">format</span> <span class="ow">or</span> <span class="s1">&#39;JPEG&#39;</span> <span class="c1"># 如果格式未知，默认为JPEG</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取原始文件扩展名</span>
+</span></span><span class="line"><span class="cl">        <span class="n">_</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">ext</span><span class="p">:</span> <span class="c1"># 如果没有扩展名，根据图片格式来定</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ext</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;.</span><span class="si">{</span><span class="n">original_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 创建一个与原文件同扩展名的临时文件</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temp_fd</span><span class="p">,</span> <span class="n">temp_path</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="n">ext</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">temp_fd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 根据不同格式应用不同压缩参数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">save_options</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">original_format</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;JPEG&#39;</span><span class="p">,</span> <span class="s1">&#39;JPG&#39;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">save_options</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">quality</span>
+</span></span><span class="line"><span class="cl">            <span class="n">save_options</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;JPEG&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">original_format</span> <span class="o">==</span> <span class="s1">&#39;PNG&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">save_options</span><span class="p">[</span><span class="s1">&#39;optimize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># 无损压缩</span>
+</span></span><span class="line"><span class="cl">            <span class="n">save_options</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;PNG&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span> <span class="c1"># 其他格式（如GIF, WEBP等）直接保存</span>
+</span></span><span class="line"><span class="cl">            <span class="n">save_options</span><span class="p">[</span><span class="s1">&#39;format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_format</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">temp_path</span><span class="p">,</span> <span class="o">**</span><span class="n">save_options</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">temp_path</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;压缩图片失败: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果压缩失败，返回原图路径，避免上传中断</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">file_path</span>
+</span></span></code></pre></div><p>只支持<code>JPEG、JPG、PNG</code>压缩。且压缩质量只对<code>JPEG、JPG</code>生效，有损压缩。而<code>PNG</code>采用无损压缩。</p>
+<p>&#x35;&#xfe0f;&#x20e3; 完整代码</p>
+<div class="post-link-card-wrap">
+  <div class="post-link-card">
+    <a href="https://github.com/anbydemara/typora-uploader" title="typora-uploader" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap auto">
+        <div class="icon-globe"></div>
+      </div><div class="post-link-card-item-wrap">
+      <div class="post-link-card-title">typora-uploader</div>
+      <div class="post-link-card-excerpt">
+        <span class="icon-link"></span>https://github.com/anbydemara/typora-uploader
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 id="2-typora配置">
+<a class="header-anchor" href="#2-typora%e9%85%8d%e7%bd%ae"></a>
+2 Typora配置
+</h2><p><code>文件-&gt;偏好设置</code>，选择<code>图像</code>，上传服务选择<code>Custom Command</code>，命令<code>python &quot;your_local_path\typora-uploader.py&quot;</code>。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>配置完成后，可以点击<code>验证图片上传选项</code>，它会上传两张默认图像进行测试。</p>
+<p>&#x1f389;Congratulations! Typora自定义上传服务配置完成。</p>
+
+        
+        <hr><p>本文2025-08-08首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-08</p>]]>
+      </description>
+      
+        <category>自动化工具</category>
+      
+    </item>
+    
+  </channel>
+</rss>

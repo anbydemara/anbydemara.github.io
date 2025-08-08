@@ -30,9 +30,9 @@
       <description>
         <![CDATA[<h1>WSL笔记</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
         
-          <h2 id="安装">
-<a class="header-anchor" href="#%e5%ae%89%e8%a3%85"></a>
-安装
+          <h2 id="1-安装">
+<a class="header-anchor" href="#1-%e5%ae%89%e8%a3%85"></a>
+1 安装
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 默认安装Unbuntu</span>
 </span></span><span class="line"><span class="cl">wsl --install
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 安装其他分发版</span>
@@ -42,18 +42,20 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">## 安装指定分发版</span>
 </span></span><span class="line"><span class="cl">wsl --install -d Debian
-</span></span></code></pre></div><h2 id="备份卸载">
-<a class="header-anchor" href="#%e5%a4%87%e4%bb%bd%e5%8d%b8%e8%bd%bd"></a>
-备份、卸载
+</span></span></code></pre></div><h2 id="2-备份卸载">
+<a class="header-anchor" href="#2-%e5%a4%87%e4%bb%bd%e5%8d%b8%e8%bd%bd"></a>
+2 备份、卸载
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 备份</span>
 </span></span><span class="line"><span class="cl">wsl --export Debian debian.tar
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 卸载</span>
 </span></span><span class="line"><span class="cl">wsl --unregister Debian
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 从备份导入</span>
 </span></span><span class="line"><span class="cl">wsl --import Debian D:/wsl .<span class="se">\d</span>ebian.tar
-</span></span></code></pre></div><h2 id="docker安装">
-<a class="header-anchor" href="#docker%e5%ae%89%e8%a3%85"></a>
-Docker安装
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 关闭wsl子系统</span>
+</span></span><span class="line"><span class="cl">wsl --shutdown
+</span></span></code></pre></div><h2 id="3-docker安装">
+<a class="header-anchor" href="#3-docker%e5%ae%89%e8%a3%85"></a>
+3 Docker安装
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 下载并执行Docker官方安装脚本</span>
 </span></span><span class="line"><span class="cl">curl -fsSL https://get.docker.com -o get-docker.sh
 </span></span><span class="line"><span class="cl">sudo sh get-docker.sh    <span class="c1"># 执行后会推荐下载Docker Desktop版，需等待20s</span>
@@ -61,6 +63,15 @@ Docker安装
 </span></span><span class="line"><span class="cl"><span class="c1"># 启动Docker服务</span>
 </span></span><span class="line"><span class="cl">sudo systemctl start docker
 </span></span><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> docker
+</span></span></code></pre></div><h2 id="4-配置">
+<a class="header-anchor" href="#4-%e9%85%8d%e7%bd%ae"></a>
+4 配置
+</h2><p>在用户目录下<code>C:\Users\username</code>新建全局配置文件<code>.wslconfig</code></p>
+<h3 id="41-网络模式">
+<a class="header-anchor" href="#41-%e7%bd%91%e7%bb%9c%e6%a8%a1%e5%bc%8f"></a>
+4.1 网络模式
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[wsl2]
+</span></span><span class="line"><span class="cl">networkingMode=mirrored
 </span></span></code></pre></div>
         
         <hr><p>本文2025-08-03首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-03</p>]]>

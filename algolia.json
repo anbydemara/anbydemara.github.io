@@ -1,8 +1,26 @@
 [
   {
+    "objectID": "7e99b4dd2d1f7decb90617e94e3bf974334872af",
+    "permalink": "/post/custom-command-typora/",
+    "title": "Typora自定义图片上传服务","content": "Typora插入图片时可以将其自动上传到图床中，在之前的文章中介绍了使用PicGO作为上传服务。\nPicGo实现Typora插入图片上传服务\r现在已经有非常多的快速搭建博客站的工具，例如JeckII、Hexo、Hugo等，它们都具有非常优秀的使用体验，并且可以通过GitHub、CloudFlare等工具进行免费部署。利用它们成功搭建出自己的博客站后，往往使用Markdown进行博客内容撰写。在撰写过程中，我们会发现处理图片时会面临一些窘境： 然而，在我实际使用中感觉PicGO稍微‘臃肿’，设置有时会卡死。\nTypora支持图片上传服务使用自定义命令，简单描述即上传图片时，Typora会自动运行设置的自定义命令，并将图片路径作为参数传递。因此，我们可以使用电脑中存在的工具进行自定义该服务，例如Python、GO、Nodejs等。\n1 图片上传服务\u0026amp;ndash;Python\r从Typora命令执行逻辑分析，脚本的任务就是根据图片路径上传这些图片，然后将返回的图床 URL 输出到控制台，Typora 会自动用这些 URL 替换掉原来的本地路径。\n\u0026amp;#x31;\u0026amp;#xfe0f;\u0026amp;#x20e3; 配置文件\n写图床存在需要权限，我们将认证信息独立到配置文件中：config.json\n{ \u0026amp;#34;access_key\u0026amp;#34;: \u0026amp;#34;YOUR_ACCESS_KEY\u0026amp;#34;, \u0026amp;#34;secret_key\u0026amp;#34;: \u0026amp;#34;YOUR_SECRET_KEY\u0026amp;#34;, \u0026amp;#34;bucket_name\u0026amp;#34;: \u0026amp;#34;YOUR_BUKCET_NAME\u0026amp;#34;, \u0026amp;#34;domain\u0026amp;#34;: \u0026amp;#34;YOUR_DOMAIN\u0026amp;#34;, \u0026amp;#34;path\u0026amp;#34;: \u0026amp;#34;YOUR_PATH\u0026amp;#34;, \u0026amp;#34;compress\u0026amp;#34;: true, \u0026amp;#34;quality\u0026amp;#34;: 80 } \u0026amp;#x32;\u0026amp;#xfe0f;\u0026amp;#x20e3; 读取配置文件\ndef load_config(): \u0026amp;#34;\u0026amp;#34;\u0026amp;#34;加载配置文件\u0026amp;#34;\u0026amp;#34;\u0026amp;#34; config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), …","date": "2025-08-08 13:00:00",
+    "updated": "2025-08-08 13:00:00"
+  }, 
+  {
+    "objectID": "b3ac3fa5cf11e4512c38687a7fc705f9332d0610",
+    "permalink": "/post/note-of-js-guide/",
+    "title": "JS犀牛书笔记","content": "\rJavascript学习笔记\rX 异步Javascript\rX.1 基于回调的异步\r最基础的异步方式。\n定时器\n一定时间后执行某个函数\n/** * param 1: function * param 2: delayed time (ms) */ setTimeout(() =\u0026gt; console.log(\u0026#39;定时调用\u0026#39;), 5000); /** * setTimeout只调用一次回调函数 * 如果要重复执行定时器，采用setInterval */ let customIntervalId = setInterval(() =\u0026gt; console.log(\u0026#39;定时调用\u0026#39;), 1000); // 每个1s调用一次 setTimeout(() =\u0026gt; clearInterval(customIntervalId), 5000); // 5s后清除该setInterval 事件\n// eg: click事件 let blockElement = xxx; blockElement.addEventListener(\u0026#39;clike\u0026#39;, yourCallBack()); X.2 Promise\r一种为简化异步编程而设计的核心语言特性。（可以理解为Promise是一种简化的处理回调的方式。为什么需要简化：例如，普通回调方式如果出现多重嵌套回调）。\nPromise是一个表示异步操作结果的对象。Promise表示一次异步计算的未来结果。\nPromise标准化了异步错误处理。\nX.2.1 Promise基本使用\r创建Promise\r","date": "2025-08-07 19:00:00",
+    "updated": "2025-08-07 19:00:00"
+  }, 
+  {
+    "objectID": "27e6b95a6101dd3288bfbd99327f91beae582ada",
+    "permalink": "/post/note-of-nodejs/",
+    "title": "Nodejs笔记","content": "\rNodejs学习笔记\r1 简介\r官方文档：\nNodejs官方文档\rhttps://nodejs.org/docs/latest/api/\rNode.js is a JavaScript runtime built on the V8 JavaScript engine.\n下载\u0026amp;安装：\nNodejs下载\rhttps://nodejs.org/en/download\r2 Quick Start\r\u0026#x31;\u0026#xfe0f;\u0026#x20e3;新建空项目first-node\n\u0026#x32;\u0026#xfe0f;\u0026#x20e3;项目下新建文件hello.js\nconst http = require(\u0026#39;node:http\u0026#39;) const hostname = \u0026#39;localhost\u0026#39;; const port = 8080; const server = http.createServer((req, res) =\u0026gt; { res.statusCode = 200; res.setHeader(\u0026#39;Content-Type\u0026#39;, \u0026#39;text/plain\u0026#39;); res.end(\u0026#39;Hello, World!\\n\u0026#39;); }); server.listen(port, hostname, () =\u0026gt; { console.log(`Server running at http://${hostname}:${port}`); }) \u0026#x33;\u0026#xfe0f;\u0026#x20e3;运行\nnode hello.js 运行结果如下，浏览器访问该url可以得到返回结果Hello, World!：\n\u0026#x1f389;Congratulations！\nX 数据库操作\rX.1 SQLite\r","date": "2025-08-07 19:00:00",
+    "updated": "2025-08-07 19:00:00"
+  }, 
+  {
     "objectID": "4c5e765e88a2b3890f8dc720f665cce5080304ec",
     "permalink": "/post/note-of-wsl/",
-    "title": "WSL笔记","content": "\r安装\r# 默认安装Unbuntu wsl --install # 安装其他分发版 ## 查看其他分发版 wsl --list --online ## 安装指定分发版 wsl --install -d Debian 备份、卸载\r# 备份 wsl --export Debian debian.tar # 卸载 wsl --unregister Debian # 从备份导入 wsl --import Debian D:/wsl .\\debian.tar Docker安装\r# 下载并执行Docker官方安装脚本 curl -fsSL https://get.docker.com -o get-docker.sh sudo sh get-docker.sh # 执行后会推荐下载Docker Desktop版，需等待20s # 启动Docker服务 sudo systemctl start docker sudo systemctl enable docker ","date": "2025-08-03 21:00:00",
+    "title": "WSL笔记","content": "\r1 安装\r# 默认安装Unbuntu wsl --install # 安装其他分发版 ## 查看其他分发版 wsl --list --online ## 安装指定分发版 wsl --install -d Debian 2 备份、卸载\r# 备份 wsl --export Debian debian.tar # 卸载 wsl --unregister Debian # 从备份导入 wsl --import Debian D:/wsl .\\debian.tar # 关闭wsl子系统 wsl --shutdown 3 Docker安装\r# 下载并执行Docker官方安装脚本 curl -fsSL https://get.docker.com -o get-docker.sh sudo sh get-docker.sh # 执行后会推荐下载Docker Desktop版，需等待20s # 启动Docker服务 sudo systemctl start docker sudo systemctl enable docker 4 配置\r在用户目录下C:\\Users\\username新建全局配置文件.wslconfig\n4.1 网络模式\r[wsl2] networkingMode=mirrored ","date": "2025-08-03 21:00:00",
     "updated": "2025-08-03 21:00:00"
   }, 
   {
