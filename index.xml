@@ -12,12 +12,175 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Fri, 08 Aug 2025 19:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Aug 2025 23:00:00 +0800</lastBuildDate>
     
     
     <atom:link href="https://anburger.site/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>Github Actions笔记</title>
+      <link>https://anburger.site/post/note-of-github-actions/</link>
+      <pubDate>Fri, 08 Aug 2025 23:00:00 &#43;0800</pubDate>
+      <author>yang_zc@aliyun.com (Anburger)</author>
+      <guid>https://anburger.site/post/note-of-github-actions/</guid>
+      <description>
+        <![CDATA[<h1>Github Actions笔记</h1><p>作者：Anburger（yang_zc@aliyun.com）</p>
+        
+          <h2 id="1-简介">
+<a class="header-anchor" href="#1-%e7%ae%80%e4%bb%8b"></a>
+1 简介
+</h2><h3 id="11-actions组成">
+<a class="header-anchor" href="#11-actions%e7%bb%84%e6%88%90"></a>
+1.1 Actions组成
+</h3><blockquote>
+<p>An <strong>action</strong> is a pre-defined, reusable set of jobs or code that performs specific tasks within a <strong>workflow</strong>.</p></blockquote>
+<p>&#x31;&#xfe0f;&#x20e3; <strong>Workflows</strong></p>
+<blockquote>
+<p>A <strong>workflow</strong> is a configurable automated process that will run one or more jobs.</p></blockquote>
+<p>&#x32;&#xfe0f;&#x20e3; <strong>Events</strong></p>
+<blockquote>
+<p>An <strong>event</strong> is a specific activity in a repository that triggers a <strong>workflow</strong> run.</p></blockquote>
+<p>&#x33;&#xfe0f;&#x20e3; <strong>Jobs</strong></p>
+<blockquote>
+<p>A <strong>job</strong> is a set of <strong>steps</strong> in a workflow that is executed on the same <strong>runner</strong>.</p></blockquote>
+<p>&#x34;&#xfe0f;&#x20e3; <strong>Runners</strong></p>
+<blockquote>
+<p>A <strong>runner</strong> is a server that runs your workflows when they&rsquo;re triggered. Each runner can run a single <strong>job</strong> at a time.</p></blockquote>
+<h3 id="12-starter-workflows">
+<a class="header-anchor" href="#12-starter-workflows"></a>
+1.2 Starter Workflows
+</h3><p><div class="post-link-card-wrap">
+  <div class="post-link-card">
+    <a href="https://github.com/actions/starter-workflows" title="Starter Workflows" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap auto">
+        <div class="icon-globe"></div>
+      </div><div class="post-link-card-item-wrap">
+      <div class="post-link-card-title">Starter Workflows</div>
+      <div class="post-link-card-excerpt">
+        <span class="icon-link"></span>https://github.com/actions/starter-workflows
+      </div>
+    </div>
+  </div>
+</div>
+)</p>
+<h2 id="2-quick-start">
+<a class="header-anchor" href="#2-quick-start"></a>
+2 Quick Start
+</h2><p>&#x31;&#xfe0f;&#x20e3; <code>new workflow</code></p>
+<p><code>进入仓库--&gt;Actions--&gt;new workflow</code>，可以选择Github推荐的workflow，或者<code>set up  a workflow yourself</code></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250809130637620.png" alt="image-20250809130637620"></p>
+<p>创建<code>action-demo.yml</code>（也可以自己新建<code>.github/workflows</code>文件夹，在该文件夹下新建<code>.yml</code>文件配置新的workflow）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">GitHub Actions Demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">run-name</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.actor }} is testing out GitHub Actions 🚀</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">push]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">Explore-GitHub-Actions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">echo &#34;🎉 The job was automatically triggered by a ${{ github.event_name }} event.&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">echo &#34;🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">echo &#34;🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}.&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Check out repository code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">echo &#34;💡 The ${{ github.repository }} repository has been cloned to the runner.&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">echo &#34;🖥️ The workflow is now ready to test your code on the runner.&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">List files in the repository</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          ls ${{ github.workspace }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">echo &#34;🍏 This job&#39;s status is ${{ job.status }}.&#34;</span><span class="w">
+</span></span></span></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250809131408013.png" alt="image-20250809131408013"></p>
+<p>该workflow被设置为当仓库<code>push</code>事件时触发，主要进行一些打印和将该仓库代码clone到我们的<code>Runner</code>中。点击<code>commit changes</code>后选择一种提交方式，则会push我们本次修改到仓库，同时也触发了新建的workflow。进入<code>Action</code>可以查看<code>workflow</code>执行结果：</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250809132725794.png" alt="image-20250809132725794"></p>
+<p>&#x1f389;Congratulations! Actions的基本使用已经完成。在此基础上，可以通过更详细的配置自由控制你想执行Jobs。</p>
+<h2 id="3-cicd">
+<a class="header-anchor" href="#3-cicd"></a>
+3 CI/CD
+</h2><h3 id="31-continuous-integration-ci">
+<a class="header-anchor" href="#31-continuous-integration-ci"></a>
+3.1 Continuous Integration (CI)
+</h3><blockquote>
+<p>Continuous integration (CI) is a software practice that requires frequently committing code to a shared repository.</p></blockquote>
+<blockquote>
+<p>When you commit code to your repository, you can continuously build and test the code to make sure that the commit doesn&rsquo;t introduce errors.</p></blockquote>
+<p><div class="post-link-card-wrap">
+  <div class="post-link-card">
+    <a href="https://docs.github.com/en/actions/tutorials/build-and-test-code" title="" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap auto">
+        <div class="icon-globe"></div>
+      </div><div class="post-link-card-item-wrap">
+      <div class="post-link-card-title"></div>
+      <div class="post-link-card-excerpt">
+        <span class="icon-link"></span>https://docs.github.com/en/actions/tutorials/build-and-test-code
+      </div>
+    </div>
+  </div>
+</div>
+)</p>
+<p>&#x1f6a9;案例：<code>Java with Maven</code></p>
+<p><code>进入仓库--&gt;Actions--&gt;new workflow</code>，搜索并选择<code>Java with Maven</code>。适当调整配置，例如修改Java版本：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Java CI with Maven</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;main&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;main&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Set up JDK 11</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/setup-java@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;11&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;temurin&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="l">maven</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build with Maven</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">mvn -B package --file pom.xml</span><span class="w">
+</span></span></span></code></pre></div><p>提交该workflow后，会因为push触发一次，若此时仓库中没有代码（pom.xml），将会运行失败。</p>
+<p>两种触发事件：</p>
+<p>&#x31;&#xfe0f;&#x20e3; push</p>
+<p>push代码到主分支（我们提交一个可以正常运行的maven项目测试），等待执行完成后查看结果。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git pull origin main    <span class="c1"># 拉取远程最新代码</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git add .	<span class="c1"># 添加所有修改</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>	<span class="c1"># 提交到本地仓库</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git push -u origin main		<span class="c1"># 推送到远程main分支</span>
+</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&#x32;&#xfe0f;&#x20e3; pull_request</p>
+<p>我们设置一个Error，然后提交代码到新分支。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 如果是最新则不执行也行</span>
+</span></span><span class="line"><span class="cl">git checkout main       <span class="c1"># 切换到主分支</span>
+</span></span><span class="line"><span class="cl">git pull origin main    <span class="c1"># 拉取远程最新代码</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 创建并切换到新分支</span>
+</span></span><span class="line"><span class="cl">git checkout -b your-branch-name 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git add .	<span class="c1"># 添加所有修改</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;testing ci error&#34;</span>	<span class="c1"># 提交到本地仓库</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git push -u origin your-branch-name 	<span class="c1"># 推送到远程</span>
+</span></span></code></pre></div><p>进入github仓库，可以看到pull request提示：点击<code>Compare &amp; pull request</code>，并提交。</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250809181117509.png" alt="image-20250809181117509"></p>
+<p>可以看到，我们的CI Action检测出了错误，我们就需要谨慎merge啦：</p>
+<p><img src="https://qiniu.anburger.site/post/image-20250809181332473.png" alt="image-20250809181332473"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250809181515738.png" alt="image-20250809181515738"></p>
+
+        
+        <hr><p>本文2025-08-08首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-08</p>]]>
+      </description>
+      
+        <category>笔记</category><category>Github</category>
+      
+    </item>
     
     
 
