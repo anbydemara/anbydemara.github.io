@@ -324,7 +324,7 @@
 <h3 id="12-starter-workflows">
 <a class="header-anchor" href="#12-starter-workflows"></a>
 1.2 Starter Workflows
-</h3><p><div class="post-link-card-wrap">
+</h3><div class="post-link-card-wrap">
   <div class="post-link-card">
     <a href="https://github.com/actions/starter-workflows" title="Starter Workflows" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap auto">
         <div class="icon-globe"></div>
@@ -336,7 +336,7 @@
     </div>
   </div>
 </div>
-)</p>
+
 <h2 id="2-quick-start">
 <a class="header-anchor" href="#2-quick-start"></a>
 2 Quick Start
@@ -376,7 +376,7 @@
 <p>Continuous integration (CI) is a software practice that requires frequently committing code to a shared repository.</p></blockquote>
 <blockquote>
 <p>When you commit code to your repository, you can continuously build and test the code to make sure that the commit doesn&rsquo;t introduce errors.</p></blockquote>
-<p><div class="post-link-card-wrap">
+<div class="post-link-card-wrap">
   <div class="post-link-card">
     <a href="https://docs.github.com/en/actions/tutorials/build-and-test-code" title="" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap auto">
         <div class="icon-globe"></div>
@@ -388,7 +388,7 @@
     </div>
   </div>
 </div>
-)</p>
+
 <p>&#x1f6a9;案例：<code>Java with Maven</code></p>
 <p><code>进入仓库--&gt;Actions--&gt;new workflow</code>，搜索并选择<code>Java with Maven</code>。适当调整配置，例如修改Java版本：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Java CI with Maven</span><span class="w">
@@ -425,7 +425,8 @@
 </span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>	<span class="c1"># 提交到本地仓库</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">git push -u origin main		<span class="c1"># 推送到远程main分支</span>
-</span></span></code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</span></span></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250809174945421.png" alt="image-20250809174945421"></p>
+<p><img src="https://qiniu.anburger.site/post/image-20250809175308575.png" alt="image-20250809175308575"></p>
 <p>&#x32;&#xfe0f;&#x20e3; pull_request</p>
 <p>我们设置一个Error，然后提交代码到新分支。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 如果是最新则不执行也行</span>
