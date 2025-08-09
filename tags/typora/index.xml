@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Typora on Anby Demara&#39;s Homepage</title>
+    <title>Typora on Anburger&#39;s Homepage</title>
     <link>https://anburger.site/tags/typora/</link>
-    <description>Recent content from Anby Demara&#39;s Homepage</description>
+    <description>Recent content from Anburger&#39;s Homepage</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     
@@ -167,12 +167,15 @@
 <a class="header-anchor" href="#2-typora%e9%85%8d%e7%bd%ae"></a>
 2 Typora配置
 </h2><p><code>文件-&gt;偏好设置</code>，选择<code>图像</code>，上传服务选择<code>Custom Command</code>，命令<code>python &quot;your_local_path\typora-uploader.py&quot;</code>。</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<div style="display: flex;">
+    <img src="https://qiniu.anburger.site/post/image-20250808112047535.png" alt="image-20250808112047535" />
+    <img src="https://qiniu.anburger.site/post/image-20250808112605560.png" alt="image-20250808112605560" />
+</div>
 <p>配置完成后，可以点击<code>验证图片上传选项</code>，它会上传两张默认图像进行测试。</p>
 <p>&#x1f389;Congratulations! Typora自定义上传服务配置完成。</p>
 
         
-        <hr><p>本文2025-08-08首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-08</p>]]>
+        <hr><p>本文2025-08-08首发于<a href='https://anburger.site/'>Anburger's Homepage</a>，最后修改于2025-08-08</p>]]>
       </description>
       
         <category>自动化工具</category>

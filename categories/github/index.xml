@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Github on Anby Demara&#39;s Homepage</title>
+    <title>Github on Anburger&#39;s Homepage</title>
     <link>https://anburger.site/categories/github/</link>
-    <description>Recent content from Anby Demara&#39;s Homepage</description>
+    <description>Recent content from Anburger&#39;s Homepage</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     
@@ -107,10 +107,10 @@
 <p>When you commit code to your repository, you can continuously build and test the code to make sure that the commit doesn&rsquo;t introduce errors.</p></blockquote>
 <div class="post-link-card-wrap">
   <div class="post-link-card">
-    <a href="https://docs.github.com/en/actions/tutorials/build-and-test-code" title="" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap auto">
+    <a href="https://docs.github.com/en/actions/tutorials/build-and-test-code" title="build-and-test-code" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap auto">
         <div class="icon-globe"></div>
       </div><div class="post-link-card-item-wrap">
-      <div class="post-link-card-title"></div>
+      <div class="post-link-card-title">build-and-test-code</div>
       <div class="post-link-card-excerpt">
         <span class="icon-link"></span>https://docs.github.com/en/actions/tutorials/build-and-test-code
       </div>
@@ -154,8 +154,10 @@
 </span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>	<span class="c1"># 提交到本地仓库</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">git push -u origin main		<span class="c1"># 推送到远程main分支</span>
-</span></span></code></pre></div><p><img src="https://qiniu.anburger.site/post/image-20250809174945421.png" alt="image-20250809174945421"></p>
-<p><img src="https://qiniu.anburger.site/post/image-20250809175308575.png" alt="image-20250809175308575"></p>
+</span></span></code></pre></div><div style="display: flex;">
+	<img src="https://qiniu.anburger.site/post/image-20250809174945421.png" alt="image-20250809174945421"/>
+    <img src="https://qiniu.anburger.site/post/image-20250809175308575.png" alt="image-20250809175308575"/>
+</div>
 <p>&#x32;&#xfe0f;&#x20e3; pull_request</p>
 <p>我们设置一个Error，然后提交代码到新分支。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 如果是最新则不执行也行</span>
@@ -176,7 +178,7 @@
 <p><img src="https://qiniu.anburger.site/post/image-20250809181515738.png" alt="image-20250809181515738"></p>
 
         
-        <hr><p>本文2025-08-08首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-08-08</p>]]>
+        <hr><p>本文2025-08-08首发于<a href='https://anburger.site/'>Anburger's Homepage</a>，最后修改于2025-08-08</p>]]>
       </description>
       
         <category>笔记</category><category>Github</category>
@@ -323,7 +325,7 @@
 </span></span></code></pre></div><p>&#x1f389; Congratulations! 我们已经实现基本的自动化部署了，你可以尽情的在此基础上进行扩展，例如​完善请求校验处理、按需求撰写你的执行脚本等。</p>
 
         
-        <hr><p>本文2025-07-23首发于<a href='https://anburger.site/'>Anby Demara's Homepage</a>，最后修改于2025-07-23</p>]]>
+        <hr><p>本文2025-07-23首发于<a href='https://anburger.site/'>Anburger's Homepage</a>，最后修改于2025-07-23</p>]]>
       </description>
       
         <category>自动化工具</category><category>Github</category>
